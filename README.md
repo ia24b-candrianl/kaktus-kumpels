@@ -31,8 +31,9 @@ Super, du hast eine venv erstellt, das bringt dir allerdings noch nichts.
 Um die venv korrekt zu verwenden, musst du sie noch aktivieren:
 
 ```command
-cd venv/Scripts
-./Activate
+cd venv/bin
+./activate
+# variiert eventuell je nach Betriebssystem | cd venv/Scripts klappt eventuell
 ```
 
 Nun kannst du Bibliotheken installieren und verwenden.
@@ -46,6 +47,7 @@ Um die Bibiliotheken zu verwenden, musst du die Abhängigkeiten installieren (ve
 
 ```command
 pip install -r requirements.txt
+# falls du einen Mac mit einem M1/2/3 Chips verwendet musst du zuerst mit homebrew postgresql installieren
 ```
 
 Wenn du nun eine neue Abhängigkeit installierst kannst du diese speichern mit 
