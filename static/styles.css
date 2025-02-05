@@ -1,0 +1,249 @@
+body {
+    font-family: "Lucida Handwriting";
+    background-color: palegoldenrod;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Book Antiqua";
+}
+
+img {
+    height: 70px;
+    width: auto;
+    margin-left: 200px;
+
+}
+
+header {
+    display: flex;
+    background: white;
+    padding: 20px;
+    margin: 7px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid #333333;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 1000;
+    font-size: larger;
+    margin: 0 20px;
+}
+
+nav a:hover {
+    color: deeppink;
+}
+
+#logo {
+    position: relative;
+    right: 200px;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+
+.div-hauptcontainer, .div-container1, .div-container2 {
+    background-color: #C1E1C1;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid black;
+    text-align: center;
+    width: 30%;
+    max-width: 400px;
+    height: auto;
+    padding: 20px;
+}
+
+
+@media (max-width: 1024px) {
+    .div-hauptcontainer, .div-container1, .div-container2 {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .div-hauptcontainer, .div-container1, .div-container2 {
+        width: 90%;
+    }
+}
+
+
+#kaktusbild {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    border: 3px solid #333333;
+    border-radius: 20px;
+    display: block;
+    margin: 40px auto;
+}
+
+
+footer {
+    background: #C1E1C1;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 3px solid #333333;
+}
+
+
+
+
+
+
+ /*body {
+            font-family: "Lucida Handwriting";
+            background-color: palegoldenrod;
+            margin: 0;
+            padding: 0;
+        }
+h1{
+    font-size: 100px;
+    text-align: center;
+    position: relative;
+    text-decoration: underline;
+    font-family: "Book Antiqua";
+}
+
+img{
+    height: 70px;
+    width: auto;
+}
+
+
+        header {
+            display: flex;
+            background: white;
+            padding: 20px;
+            margin: 7px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            border-color: #333333;
+            border-style: solid;
+
+
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: 1000;
+            font-size: large;
+            margin: 0 20px;
+            position: relative;
+
+
+        }
+
+        nav a:hover{
+            color: deeppink;
+        }
+
+        #logo{
+            position: relative;
+            right: 200px;
+        }
+        .row{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .container {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .div-hauptcontainer, .div-container1, .div-container2 {
+            background-color: #C1E1C1;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid black;
+            text-align: center;
+
+
+
+        }
+        .div-hauptcontainer{
+            width: 25%;
+            height: 180px;
+            margin-left: 800px;
+        }
+        .div-container1{
+            width: 25%;
+            height: 185px;
+            margin-left: 1800px;
+
+
+
+        }
+
+        .div-container2{
+            width: 25%;
+            height: 180px;
+            margin-left: 800px;
+        }
+
+
+        .bild-container {
+            display: flex;
+            justify-content: center;
+
+
+
+        }
+
+        #kaktusbild {
+            width: 20%;
+            height: 225px;
+            border: 3px solid #333333;
+            position: relative;
+            border-radius: 20px;
+            margin-left: 1800px;
+
+
+        }
+
+
+
+
+        footer {
+            background: #C1E1C1;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+
+        }
+
+
