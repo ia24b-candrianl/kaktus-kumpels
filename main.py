@@ -43,9 +43,10 @@ def result(name) -> str:
     app.logger.info(f"Showing result for {name}")
     return render_template("result.html", name=name)
 
-@app.route("/get_languages")
-def get_languages() -> str:
-    return render_template("languages.html", languages=languages)
+@app.route('/ueber_uns')
+def ueber_uns():
+    return render_template('ueber_uns.html')
+
 
 # API für Programmiersprachen als JSON
 from flask import jsonify
