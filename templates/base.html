@@ -10,25 +10,28 @@
 
 <header>
     <a href="{{ url_for('home') }}" id="logo">
-        <img src="{{ url_for('static', filename='Kaktus_Kumpels_logo.png') }}" id="logo" alt="KaktusKumpels Logo" height="40">
+        <img src="{{ url_for('static', filename='Kaktus_Kumpels_logo.png') }}" id="logo" alt="KaktusKumpels Logo"
+             height="40">
     </a>
-
-    <nav>
-        <a href="{{ url_for('home') }}">Produkt</a>
-        <a href="{{ url_for('ueber_uns') }}">Über uns</a>
-        <a href="{{ url_for('contact') }}">Kontakt</a>
-        <a href="#">Registrierung</a>
-        <a href="#">Warenkorb</a>
-    </nav>
+    <div class="nav-container">
+        <nav>
+            <a href="{{ url_for('home') }}">Produkt</a>
+            <a href="{{ url_for('ueber_uns') }}">Über uns</a>
+            <a href="{{ url_for('contact') }}">Kontakt</a>
+            <a href="#">Registrierung</a>
+            <a href="#">Warenkorb</a>
+        </nav>
+    </div>
 </header>
 
 <main>
     {% block content %}{% endblock %}
 </main>
 
+
+</body>
 <footer>
     <p>AGB | Datenschutzerklärung | &copy; KaktusKumpels</p>
 </footer>
 
-</body>
 </html>
