@@ -5,44 +5,46 @@
 {% block title %}Kontakt{% endblock %}
 
 {% block content %}
-
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+    </head>
     <h1>Kontakt</h1>
 
 
-  <div class="container">
-    <div class="div-hauptcontainer">
-        <div class="row">
-            <h2>KaktusKumpels</h2>
-            <form>
-                <label for="adresse">Kaktusstrasse 2</label><br>
-                <label for="postleitzahl">8054 Kaktus</label><br>
-                <label for="e-mail">KaktusKumpels@kaktus.ch</label>
-            </form>
+    <div class="container">
+        <div class="div-hauptcontainer">
+            <div class="row">
+                <h2>KaktusKumpels</h2>
+                <form>
+                    <label for="adresse">Kaktusstrasse 2</label><br>
+                    <label for="postleitzahl">8054 Kaktus</label><br>
+                    <label for="e-mail">KaktusKumpels@kaktus.ch</label>
+                </form>
+            </div>
+        </div>
+
+        <div class="div-container1">
+            <div class="row">
+                <h2>Telefonische Beratung</h2>
+                <form>
+                    <label for="tage">Montag - Freitag</label><br>
+                    <label for="telefon">011 111 11 11</label>
+                </form>
+            </div>
+        </div>
+
+        <div class="div-container2">
+            <div class="row">
+                <h2>Öffnungszeiten</h2>
+                <form>
+                    <label for="tage + zeit">Montag - Freitag: 08:00 - 12:00 /</label><br>
+                    <label for="zeiten">13:00 - 17:00</label>
+                </form>
+            </div>
         </div>
     </div>
 
-    <div class="div-container1">
-        <div class="row">
-            <h2>Telefonische Beratung</h2>
-            <form>
-                <label for="tage" >Montag - Freitag</label><br>
-                <label for="telefon" >011 111 11 11</label>
-            </form>
-        </div>
-    </div>
-
-    <div class="div-container2">
-        <div class="row">
-            <h2>Öffnungszeiten</h2>
-            <form>
-                <label for="tage + zeit">Montag - Freitag: 08:00 - 12:00 /</label><br>
-                <label for="zeiten">13:00 - 17:00</label>
-            </form>
-        </div>
-    </div>
-</div>
-
-<img src="/static/kaktusbild1.jpg" id="kaktusbild" alt="kaktusbild">
+    <img src="/static/kaktusbild1.jpg" id="kaktusbild" alt="kaktusbild">
 
 
 
