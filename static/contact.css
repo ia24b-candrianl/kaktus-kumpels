@@ -1,5 +1,10 @@
 
-
+h1 {
+    font-size: 100px;
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Book Antiqua";
+}
 
 #kaktusbild {
     display: flex;
