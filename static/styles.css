@@ -71,11 +71,21 @@ footer {
     justify-content: center;
     background: #C1E1C1;
     padding: 10px;
+    gap: 5px;
     text-align: center;
+    align-items: center;
     font-size: 15px;
     border-radius: 10px;
     border: 3px solid #333333;
 }
+
+#instalogo, #tiktoklogo, #twitterlogo {
+    height: 20px;
+    width: auto;
+    margin-right: 3px;
+
+}
+
 
 
 @media (max-width: 1024px) {
@@ -86,6 +96,7 @@ footer {
 
 
     footer {
+        position: fixed;
         font-size: 12px;
     }
 }
@@ -97,6 +108,7 @@ footer {
     }
 
     footer {
+        position: fixed;
         font-size: 12px;
     }
 }
