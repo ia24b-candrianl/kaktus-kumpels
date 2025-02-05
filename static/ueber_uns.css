@@ -1,0 +1,21 @@
+.ueber_uns_container{
+    font-family: sans-serif, "Times New Roman";
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding-left: 600px;
+    padding-right: 200px;
+}
+h2{
+    font-family: sans-serif, "DejaVu Sans Mono";
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+#ueberuns_bild{
+    display: flex;
+    height: auto;
+    width: 450px;
+    padding-left: 20px;
+}
