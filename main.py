@@ -38,10 +38,9 @@ def submit():
         return redirect(url_for("contact"))
     return redirect(url_for("result", name=name))
 
-@app.route("/result/<name>")
-def result(name) -> str:
-    app.logger.info(f"Showing result for {name}")
-    return render_template("result.html", name=name)
+@app.route("/product")
+def result() -> str:
+    return render_template("product.html")
 
 @app.route('/ueber_uns')
 def ueber_uns():

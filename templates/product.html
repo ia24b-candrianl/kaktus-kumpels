@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
+    </head>
+    <div class="dif">
+        <h1 class="rabatt">60% Rabatt! Nur heute.</h1>
+    </div>
+    <div class="div-container2">
+    <img src="{{ url_for('static', filename='Ventiator.jpg') }}" alt="Ventilator" class="img1">
+        <div class="all-container">
+            <div>
+                <div>Arctic Air 2.0</div>
+                <div>999.- CHF</div>
+            </div>
+            <div class="abstand">
+                <div>Bewertungen:</div>
+                <div>Unsere Tester bewerten dieses <br> Produkt mit 5 Sternen.</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

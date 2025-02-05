@@ -1,0 +1,37 @@
+
+
+.rabatt {
+    border: 3px solid black;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    !important; text-decoration: none;
+    !important; font-size: 60px;
+    display: flex;
+    padding: 7px;
+}
+
+.div-container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30%;
+}
+
+.img1 {
+    width: 300px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+.all-container {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+}
+
+.abstand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
