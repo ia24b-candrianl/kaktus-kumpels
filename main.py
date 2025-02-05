@@ -8,6 +8,7 @@ languages = [
     {"name": "Java", "creator": "James Gosling", "year": 1995},
     {"name": "C#", "creator": "Microsoft", "year": 2000},
     {"name": "Ruby", "creator": "Yukihiro Matsumoto", "year": 1995},
+    {"name": "PowerShell", "creator": "Microsoft", "year": 1995},
 ]
 
 app = Flask(__name__)
