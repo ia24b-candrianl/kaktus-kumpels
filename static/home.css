@@ -61,6 +61,11 @@ iframe{
     margin-top: -15%;
 }
 
+.form-check{
+    display: flex;
+    margin-left: 5%;
+}
+
 @media (max-width: 1024px) {
 
     nav {
