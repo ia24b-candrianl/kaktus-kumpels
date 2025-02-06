@@ -1,0 +1,33 @@
+.warenkorb-titel {
+    padding-left: 50px;
+}
+
+.img1 {
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.product-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pay-button {
+    background-color: #C1E1C1;
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+.summary-box {
+    border: solid black 2px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}

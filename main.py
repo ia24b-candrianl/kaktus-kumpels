@@ -88,7 +88,9 @@ def warenkorb_leer():
 def profilübersicht():
     return render_template('profilübersicht.html')
 
-
+@app.route('/warenkorb')
+def warenkorb():
+    return render_template('warenkorb.html')
 # API für Programmiersprachen als JSON
 from flask import jsonify
 

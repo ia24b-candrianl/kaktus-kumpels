@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Warenkorb{% endblock %}
+
+{% block content %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='warenkorb.css') }}">
+    </div>
+
+    <h2 style="padding: 20px;">Ihr Warenkorb</h2>
+
+    <div class="container">
+        <div class="product-container">
+            <img src="{{ url_for('static', filename='Ventiator.jpg') }} " class="img1">
+            <div class="kaktuspreis">
+                <p><b>Name:</b> Kaktus-Windrad</p>
+                <p><b>Preis:</b> 29 CHF</p>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <p>Zwischensumme: 29 CHF</p>
+            <p>Versand: 5 CHF</p>
+            <p><b>Gesamtsumme: 34 CHF</b></p>
+            <button class="pay-button">Bezahlen</button>
+        </div>
+    </div>
+
+
+
+{% endblock %}
