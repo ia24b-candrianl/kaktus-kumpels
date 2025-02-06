@@ -101,6 +101,18 @@ def profilübersicht():
 @app.route('/warenkorb')
 def warenkorb():
     return render_template('warenkorb.html')
+
+
+@app.route('/bezahlseite', methods=["GET", "POST"])
+def bezahlseite():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        return redirect(url_for('success'))
+
+    return render_template('bezahlseite.html')
 # API für Programmiersprachen als JSON
 from flask import jsonify
 

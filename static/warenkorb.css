@@ -27,6 +27,7 @@
     background-color: #C1E1C1;
     border-radius: 15px;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
 .summary-box {
