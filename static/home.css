@@ -9,8 +9,8 @@
 }
 #ventilatorBild{
     display: flex;
-    width: 30%;
-    margin-left: 25%;
+    width: 33%;
+    margin-left: 18%;
     margin-top: 7%;
     border: 3px solid black;
     border-radius: 20px;
@@ -20,21 +20,21 @@
 .titleHome{
     display: flex;
     font-size: 300%;
-    margin-left: 50%;
-    margin-top: 18%;
+    margin-left: 40%;
+    margin-top: 15%;
 }
 
 .slogan{
     display: flex;
     font-size: 200%;
-    padding-left: 5%;
-    margin-top:20%;
+    padding-left: 7%;
+    margin-top:17%;
 }
 
 .timer{
     display: flex;
     font-size: 600%;
-    padding-left: 5%;
+    padding-left: 7%;
 }
 
 iframe{
@@ -45,13 +45,14 @@ iframe{
     font-weight: bold;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 5%;
+    margin-left: 7%;
     margin-top: -15%;
 }
 
 .form-check{
     display: flex;
-    margin-left: 5%;
+    margin-left: 7%;
+    font-size: 150%;
 }
 
 @media (max-width: 1024px) {
