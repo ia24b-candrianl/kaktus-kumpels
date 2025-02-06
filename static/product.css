@@ -1,5 +1,8 @@
 .body {
 }
+.dif{
+    background-color: #C1E1C1;
+}
 
 .rabatt {
     border: 3px solid black;
@@ -31,8 +34,13 @@
 .all-container {
     display: flex;
     flex-direction: column;
-    gap: 120px;
-    margin-top: 40px;
+    gap: 90px;
+    height: 370px;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    padding: 20px;
 }
 
 .picAndText {
@@ -48,7 +56,8 @@
 }
 
 .img1 {
-    width: 300px;
+    width: 500px;
+    height: auto;
     border: 5px solid black;
     border-radius: 10px;
 }
@@ -80,11 +89,39 @@
     transform: scale(1.05);
 }
 
+.both-containers{
+    flex-direction: row;
+
+}
+
+
 .all-container2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Ändert die Anordnung auf horizontal */
     gap: 20px;
+    height: 375px;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    padding: 15px;
+
+
 }
+.all-container3{
+    display: flex;
+    flex-direction: row; /* Ändert die Anordnung auf horizontal */
+    gap: 20px;
+    height: 375px;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    padding: 15px;
+
+}
+
+
 
 .produktInfos {
     display: flex;
@@ -96,6 +133,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-bottom: 30px;
 }
 
 .picAndTextRight {
@@ -103,6 +141,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+
 }
 
 
@@ -178,4 +217,25 @@
     .abstand {
         gap: 5px;
     }
+
+
+}
+
+
+.both-containers {
+    display: flex;
+    flex-direction: row; /* Ändert die Anordnung auf horizontal */
+    justify-content: center; /* Zentriert die Kästchen */
+    gap: 20px; /* Abstand zwischen den Kästchen */
+    flex-wrap: wrap; /* Falls zu wenig Platz da ist, umbricht es */
+    margin-bottom: 5%;
+}
+
+.all-container2, .all-container3 {
+    flex: 1; /* Sorgt dafür, dass sie gleichmäßig Platz einnehmen */
+    min-width: 300px; /* Verhindert, dass sie zu klein werden */
+}
+
+.picAndTextRight {
+    margin-top: -20.5%;
 }
