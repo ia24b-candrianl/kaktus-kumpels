@@ -1,3 +1,5 @@
+
+
 from flask import Flask, request, render_template, url_for, redirect
 import services.math_service as math_service
 
@@ -13,21 +15,25 @@ languages = [
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def home() -> str:
     print(math_service.add(1.0, 2.0))
     app.logger.info("Rendering home page")
     return render_template("home.html")
 
+
 @app.route("/about_flask")
 def about_flask() -> str:
     app.logger.info("Rendering About Flask page")
     return render_template("about_flask.html")
 
+
 @app.route("/contact")
 def contact() -> str:
     app.logger.info("Rendering Contact page")
     return render_template("contact.html")
+
 
 # Route für das Kontaktformular
 @app.route("/submit", methods=["POST"])
@@ -38,17 +44,33 @@ def submit():
         return redirect(url_for("contact"))
     return redirect(url_for("product", name=name))
 
+
 @app.route("/product")
 def product() -> str:
     return render_template("product.html")
+
 
 @app.route('/ueber_uns')
 def ueber_uns():
     return render_template('ueber_uns.html')
 
-@app.route('/registrierung')
+
+@app.route('/registrierung', methods=["GET", "POST"])
 def registrierung():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        return redirect(url_for('success'))
+
     return render_template('registrierung.html')
+
+
+@app.route('/success')
+def success():
+    return "Registrierung erfolgreich!"
+
 
 @app.route('/warenkorb_leer')
 def warenkorb_leer():
@@ -58,10 +80,11 @@ def warenkorb_leer():
 # API für Programmiersprachen als JSON
 from flask import jsonify
 
+
 @app.route('/helloWorld')
 def hello_world() -> str:
     return 'Hello, World!'
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
