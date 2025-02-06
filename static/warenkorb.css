@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: row;
     gap: 50px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 30px;
+    padding: 20px;
 }
 
 .container {
