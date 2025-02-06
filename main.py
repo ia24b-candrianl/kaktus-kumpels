@@ -16,7 +16,7 @@ languages = [
 app = Flask(__name__)
 from datetime import datetime
 
-release_date = datetime(2025, 6, 1, 14, 2, 0)
+release_date = datetime(2025, 3, 18, 14, 2, 0)
 
 @app.route("/")
 def home() -> str:
