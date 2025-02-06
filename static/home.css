@@ -1,0 +1,83 @@
+.homeParent{
+    display: flex;
+    flex-direction: row;
+}
+
+.parentSlogan{
+    display: flex;
+    flex-direction: row;
+}
+#ventilatorBild{
+    display: flex;
+    width: 30%;
+    margin-left: 40%;
+    margin-top: 7%;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titleHome{
+    display: flex;
+    font-size: 600%;
+    padding-left: 5%;
+}
+
+.slogan{
+    display: flex;
+    font-size: 150%;
+    padding-left: 5%;
+    margin-top: 7%;
+}
+
+.timer{
+    display: flex;
+    font-size: 300%;
+    margin-left: 50%;
+}
+
+
+@media (max-width: 1024px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+    #ventilatorBild {
+        width: 45%;
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    #ventilatorBild {
+        width: 45%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+}
