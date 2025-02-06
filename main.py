@@ -45,7 +45,9 @@ def result() -> str:
 @app.route('/ueber_uns')
 def ueber_uns():
     return render_template('ueber_uns.html')
-
+@app.route('/warenkorb_leer')
+def warenkorb_leer():
+    return render_template('warenkorb_leer.html')
 
 # API für Programmiersprachen als JSON
 from flask import jsonify
