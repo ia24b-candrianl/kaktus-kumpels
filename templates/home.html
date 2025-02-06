@@ -3,11 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome</h1>
-<form action="{{ url_for('submit') }}" method="post">
-    <label for="name">Enter your name:</label>
-    <input type="text" id="name" name="name">
-    <button type="submit">Submit</button>
-</form>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    </head>
     <h1>Test</h1>
 {% endblock %}

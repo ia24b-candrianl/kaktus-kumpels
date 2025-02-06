@@ -57,9 +57,6 @@ def warenkorb_leer():
 
 # API für Programmiersprachen als JSON
 from flask import jsonify
-@app.route("/api/languages")
-def api_languages():
-    return jsonify(languages)
 
 @app.route('/helloWorld')
 def hello_world() -> str:
