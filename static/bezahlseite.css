@@ -1,12 +1,16 @@
 
 .zahlungsweisen {
     justify-self: center;
+    text-align: center;
     display: flex;
     padding: 20px;
     border: 3px solid black;
     flex-direction: column;
     width: 40%;
     background: white;
+}
+.arten{
+    padding-bottom: 50px;
 }
 
 .karte, .rechnung, .bitcoin{
