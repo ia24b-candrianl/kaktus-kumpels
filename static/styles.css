@@ -88,6 +88,9 @@ footer {
     margin-right: 3px;
 
 }
+#instalogo {
+    margin-left: 40px;
+}
 
 
 @media (max-width: 1024px) {
