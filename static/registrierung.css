@@ -1,0 +1,33 @@
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Book Antiqua", serif;
+}
+
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+
+    }
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+}

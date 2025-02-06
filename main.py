@@ -46,6 +46,10 @@ def result() -> str:
 def ueber_uns():
     return render_template('ueber_uns.html')
 
+@app.route('/registrierung')
+def registrierung():
+    return render_template('registrierung.html')
+
 
 # API für Programmiersprachen als JSON
 from flask import jsonify

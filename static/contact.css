@@ -3,7 +3,7 @@ h1 {
     font-size: 100px;
     text-align: center;
     text-decoration: underline;
-    font-family: "Book Antiqua";
+    font-family: "Book Antiqua", serif;
 }
 
 #kaktusbild {
@@ -38,10 +38,11 @@ h1 {
     padding: 20px;
 }
 
+
 @media (max-width: 1024px) {
 
     nav {
-        flex-direction: column; /* Navigation wird untereinander angezeigt */
+        flex-direction: column;
         gap: 15px;
     }
 
@@ -50,7 +51,7 @@ h1 {
     }
 
     footer {
-        position: fixed;
+        position: relative;
         font-size: 12px;
     }
 
@@ -82,5 +83,6 @@ h1 {
     }
 
 }
+
 
 

@@ -1,5 +1,5 @@
 body {
-    font-family: "Lucida Handwriting";
+    font-family: "Lucida Handwriting", serif;
     background-color: palegoldenrod;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ h1 {
     font-size: 100px;
     text-align: center;
     text-decoration: underline;
-    font-family: "Book Antiqua";
+    font-family: "Book Antiqua", serif;
 }
 
 /* Header Layout */
@@ -27,6 +27,9 @@ header {
     border: 3px solid #333333;
     position: relative;
     flex-wrap: wrap;
+}
+main {
+    flex: 1
 }
 
 /* Logo */
@@ -63,10 +66,9 @@ nav a:hover {
 
 /* Footer */
 footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
-    width: 100%;
     display: flex;
     justify-content: center;
     background: #C1E1C1;
@@ -77,6 +79,7 @@ footer {
     font-size: 15px;
     border-radius: 10px;
     border: 3px solid #333333;
+    width: 100%;
 }
 
 #instalogo, #tiktoklogo, #twitterlogo {
@@ -87,7 +90,6 @@ footer {
 }
 
 
-
 @media (max-width: 1024px) {
     header {
         flex-direction: column;
@@ -96,7 +98,7 @@ footer {
 
 
     footer {
-        position: fixed;
+        position: relative;
         font-size: 12px;
     }
 }
@@ -108,7 +110,7 @@ footer {
     }
 
     footer {
-        position: fixed;
+        position: relative;
         font-size: 12px;
     }
 }
