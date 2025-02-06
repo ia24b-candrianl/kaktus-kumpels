@@ -36,10 +36,10 @@ def submit():
     name = request.form.get("name", "").strip()
     if not name:
         return redirect(url_for("contact"))
-    return redirect(url_for("result", name=name))
+    return redirect(url_for("product", name=name))
 
 @app.route("/product")
-def result() -> str:
+def product() -> str:
     return render_template("product.html")
 
 @app.route('/ueber_uns')
@@ -49,6 +49,10 @@ def ueber_uns():
 @app.route('/registrierung')
 def registrierung():
     return render_template('registrierung.html')
+
+@app.route('/warenkorb_leer')
+def warenkorb_leer():
+    return render_template('warenkorb_leer.html')
 
 
 # API für Programmiersprachen als JSON
