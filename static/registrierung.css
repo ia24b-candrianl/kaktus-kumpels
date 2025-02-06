@@ -29,17 +29,36 @@ h1 {
     width: 200px;
     padding: 16px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
 .register-form button {
     background: palegoldenrod;
-     width: 200px;
+    width: 200px;
     padding: 16px;
     margin: 10px 0;
-    border: 1px solid#ccc;
+    border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.vergessen {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.vergessen a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.vergessen a:hover {
+    text-decoration: underline;
+    color: #0056b3;
 }
 
 
@@ -54,6 +73,21 @@ h1 {
 
     }
 }
+
+.landschaft {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+
+
+}
+
+#landschaft {
+    max-width: 60%;
+    height: auto;
+    border-radius: 20px;
+}
+
 
 
 @media (max-width: 768px) {

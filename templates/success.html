@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Erfolgreiche Anmeldung{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='success.css') }}">
+{% endblock %}
+
+{% block content %}
+    <title>Erfolgreiche Anmeldung</title>
+    <body>
+    <h1>Viel Spass beim Einkaufen!</h1>
+    <p>Schlag zu und bestelle dir noch heute deinen Kaktus-tastischen Ventilator!</p>
+    <div class="kaktus">
+    <img src="{{ url_for('static', filename='Kaktus_Comic.png') }}" id="comic" alt="kaktus_comic">
+    </div>
+    </body>
+{% endblock %}

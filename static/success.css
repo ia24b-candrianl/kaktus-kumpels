@@ -1,0 +1,13 @@
+p {
+    text-align: center;
+}
+
+.kaktus {
+    display: flex;
+    justify-content: center;
+}
+
+#comic {
+    max-width: 100%;
+    height: auto;
+}

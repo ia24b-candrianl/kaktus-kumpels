@@ -1,4 +1,4 @@
-
+import re
 
 from flask import Flask, request, render_template, url_for, redirect
 import services.math_service as math_service
@@ -69,7 +69,7 @@ def registrierung():
 
 @app.route('/success')
 def success():
-    return "Registrierung erfolgreich!"
+    return render_template('success.html')
 
 
 @app.route('/warenkorb_leer')
