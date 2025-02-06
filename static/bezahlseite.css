@@ -1,0 +1,35 @@
+
+.zahlungsweisen {
+    justify-self: center;
+    display: flex;
+    padding: 20px;
+    border: 3px solid black;
+    flex-direction: column;
+    width: 40%;
+    background: white;
+}
+
+.karte, .rechnung, .bitcoin{
+    display: flex;
+    padding: 20px;
+    border: 3px solid black;
+    justify-content: space-between;
+    margin: 5% 2%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+input, button {
+    height: 30px;
+    width: 250px;
+}
+
+#qr-code {
+    width: 100px;
+    height: auto;
+}

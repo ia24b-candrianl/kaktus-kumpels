@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Bezahlseite{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='bezahlseite.css') }}">
+{% endblock %}
+
+{% block content %}
+    <title>Bezahlung</title>
+    <body>
+    <h1>Bestellung aufgeben</h1>
+
+    <div class="zahlungsweisen">
+        <h2>Zahlungsweise</h2>
+        <div class="arten">
+            <div class="karte">
+                <h2>Per Kredit-oder Debitkarte</h2>
+                <label>
+                    <input type="text" name="kartennummer" placeholder="Kartennummer" required>
+                    <input type="text" name="sicherheitscode" placeholder="Sicherheitscode" required>
+                    <input type="text" name="name" placeholder="Name auf der Karte" required>
+                    <input type="text" name="ablaufdatum" placeholder="Ablaufdatum" required>
+                    <button type="submit">Weiter</button>
+                </label>
+            </div>
+            <div class="rechnung">
+                <h2>Rechnung</h2>
+                <label>
+                    <input type="text" name="adresse" placeholder="Adresse" required>
+                    <input type="text" name="nachname" placeholder="Nachname" required>
+                    <input type="text" name="vorname" placeholder="Vorname" required>
+                    <input type="text" name="email" placeholder="Email" required>
+                    <button type="submit">Weiter</button>
+                </label>
+            </div>
+            <div class="bitcoin">
+                <h2>Per Bitcoin</h2>
+                <p>BTC-Adresse: hurFzD34j4k3l3323</p>
+                <img src="{{ url_for('static' , filename='QR--Code.png') }}" id="qr-code" alt="qr-code">
+            </div>
+        </div>
+    </div>
+
+    </body>
+{% endblock %}
