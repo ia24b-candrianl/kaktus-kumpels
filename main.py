@@ -84,6 +84,10 @@ def success():
 def warenkorb_leer():
     return render_template('warenkorb_leer.html')
 
+@app.route('/profilübersicht')
+def profilübersicht():
+    return render_template('profilübersicht.html')
+
 
 # API für Programmiersprachen als JSON
 from flask import jsonify
