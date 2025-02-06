@@ -16,10 +16,10 @@ languages = [
 app = Flask(__name__)
 from datetime import datetime
 
+release_date = datetime(2025, 6, 1, 14, 2, 0)
+
 @app.route("/")
 def home() -> str:
-    release_date = datetime(2025, 6, 1, 14, 2, 0)
-
     now = datetime.now()
     time_remaining = release_date - now
 
@@ -29,6 +29,16 @@ def home() -> str:
     seconds = time_remaining.seconds % 60
     app.logger.info("Rendering home page")
     return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
+
+@app.route("/countdown")
+def countdown():
+    now = datetime.now()
+    diff = release_date - now
+    days, seconds = diff.days, diff.seconds
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    seconds = seconds % 60
+    return render_template("countdown.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
 
 
 @app.route("/about_flask")

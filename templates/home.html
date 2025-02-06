@@ -10,9 +10,8 @@
         <p class="timer">Time until<br>Release:</p>
         <img src="/static/Ventiator.jpg" id="ventilatorBild">
     </div>
-    <div class="countdown">
-        <p>{{ days }} d : {{ hours }} h : {{ minutes }} min : {{ seconds }} sec</p>
-    </div>
+    <iframe src="{{ url_for('countdown') }}" width="100%" height="50" frameborder="0"></iframe>
+
     <div class="parentSlogan">
         <p class="slogan">"Ein Hauch<br>von Frische"</p>
         <p class="titleHome">Arctic<br>Air 2.0</p>
