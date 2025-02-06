@@ -39,15 +39,17 @@ def submit():
     return redirect(url_for("result", name=name))
 
 @app.route("/product")
-def product() -> str:
+def result() -> str:
     return render_template("product.html")
 
 @app.route('/ueber_uns')
 def ueber_uns():
     return render_template('ueber_uns.html')
-@app.route('/warenkorb_leer')
-def warenkorb_leer():
-    return render_template('warenkorb_leer.html')
+
+@app.route('/registrierung')
+def registrierung():
+    return render_template('registrierung.html')
+
 
 # API für Programmiersprachen als JSON
 from flask import jsonify

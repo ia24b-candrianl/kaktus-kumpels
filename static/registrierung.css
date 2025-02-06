@@ -6,6 +6,42 @@ h1 {
     font-family: "Book Antiqua", serif;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-form {
+    background:#C1E1C1;
+    padding: 20px;
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    text-align: center;
+}
+
+.register-form input {
+    background: palegoldenrod;
+    width: 200px;
+    padding: 16px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-form button {
+    background: palegoldenrod;
+     width: 200px;
+    padding: 16px;
+    margin: 10px 0;
+    border: 1px solid#ccc;
+    border-radius: 5px;
+}
+
 
 @media (max-width: 1024px) {
     h1 {

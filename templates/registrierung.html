@@ -2,56 +2,25 @@
 
 {% block title %}Registrierung{% endblock %}
 
-{% block style %}<link rel="stylesheet" href="{{ url_for('static', filename='registrierung.css') }}">{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='registrierung.css') }}">{% endblock %}
 
 {% block content %}
+    <title>Registrierung</title>
+    <body>
     <h1>Registrierung</h1>
-    <div class="ueber_uns_container">
+    <div class="container">
+        <form action="{{ url_for ('registrierung') }}" method="post" class="register-form">
+            <h2>Melde dich jetzt an!</h2>
+            <label>
+                <input type="text" name="e-mail" placeholder="E-Mail Adresse" required>
+                <input type="text" name="password" placeholder="Passwort" required>
+                <button type="submit">Registrieren</button>
 
-        <h3>KaktusKumpels – Frische Brise, stacheliger Stil</h3>
-        <p>In der Welt der Ventilatoren gibt es einen neuen,
-            frischen Wind: KaktusKumpels! Diese junge,
-            dynamische Firma hat es sich zur Mission gemacht,
-            nicht nur für kühle Luft zu sorgen, sondern auch ein
-            Statement in Sachen Design und Nachhaltigkeit zu
-            setzen. Die Produkte von KaktusKumpels verbinden
-            Funktionalität mit einem Hauch Wüstenflair. Kleine
-            Tischventilatoren, die mit einem Kaktus-Look jedes
-            Büro aufwerten, die an heissen Sommertagen für die
-            nötige Abkühlung sorgen. Nachhaltigkeit an erster Stelle
-            Ein zentraler Wert von KaktusKumpels ist der
-            Schutz der Umwelt. Alle Ventilatoren werden aus
-            recycelten Materialien gefertigt und mit
-            energieeffizienten Motoren ausgestattet. Das
-            Unternehmen bietet zudem ein Rücknahmesystem an,
-            bei dem alte Geräte kostenlos recycelt werden
-            können. Design trifft Komfort
-            Die Gründer von KaktusKumpels haben erkannt,
-            dass Haushaltsgeräte nicht nur funktional sein
-            sollten, sondern auch das Zuhause verschönern
-            können. Sie verleihen jedem Raum eine fröhliche,
-            moderne Note – und sind garantiert ein
-            Gesprächsstarter. Warum "KaktusKumpels"?
-            Der Name des Unternehmens ist kein Zufall:
-            KaktusKumpels steht für eine Verbindung von Natur,
-            Stil und Funktionalität. Wie ein Kaktus, der selbst in
-            der heissesten Wüste überlebt, sorgen die Ventilatoren
-            auch bei der grössten Hitze für angenehme Abkühlung –
-            und sind dabei genauso robust und pflegeleicht wie
-            die Wüstenpflanze. Eine Marke, die verbindet
-            KaktusKumpels legt grossen Wert auf
-            Kundenzufriedenheit und Gemeinschaft. Regelmässige
-            Aktionen, wie Rabatte oder soziale Projekte, bei
-            denen ein Teil des Gewinns an
-            Umweltschutzorganisationen gespendet wird, machen
-            die Marke zu einem echten Kumpel für Mensch und Natur.
-            Ob für zuhause, das Büro oder den Garten: Mit
-            einem Ventilator von KaktusKumpels holen Sie sich
-            nicht nur frischen Wind ins Haus, sondern auch ein
-            Stück Lifestyle.
-            Kaktuskumpels – Weil Abkühlung immer stylish sein kann
-        </p>
+            </label>
+        </form>
     </div>
 
+    </body>
 
 {% endblock %}
