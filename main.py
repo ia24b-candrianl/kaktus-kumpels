@@ -14,13 +14,21 @@ languages = [
 ]
 
 app = Flask(__name__)
-
+from datetime import datetime
 
 @app.route("/")
 def home() -> str:
-    print(math_service.add(1.0, 2.0))
+    release_date = datetime(2025, 6, 1, 14, 2, 0)
+
+    now = datetime.now()
+    time_remaining = release_date - now
+
+    days = time_remaining.days
+    hours = time_remaining.seconds // 3600
+    minutes = (time_remaining.seconds % 3600) // 60
+    seconds = time_remaining.seconds % 60
     app.logger.info("Rendering home page")
-    return render_template("home.html")
+    return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
 
 
 @app.route("/about_flask")
