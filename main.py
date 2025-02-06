@@ -39,7 +39,7 @@ def submit():
     return redirect(url_for("result", name=name))
 
 @app.route("/product")
-def result() -> str:
+def product() -> str:
     return render_template("product.html")
 
 @app.route('/ueber_uns')
