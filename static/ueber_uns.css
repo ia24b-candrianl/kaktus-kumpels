@@ -26,6 +26,8 @@ h2 {
     font-family: "Lucida Handwriting", "DejaVu Sans Mono", serif;
     display: flex;
     text-align: center;
+    font-size: 60px;
+    text-decoration: underline;
     justify-content: center;
     align-content: center;
     padding-bottom: 3%;
@@ -34,7 +36,7 @@ h2 {
 
 #ueberuns_bild {
     display: flex;
-    width: 35%;
+    width: 40%;
     padding-left: 5%;
     padding-bottom: 5%;
     margin-top: auto;
