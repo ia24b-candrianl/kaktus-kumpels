@@ -1,8 +1,5 @@
 .body {
 }
-.dif{
-    background-color: #C1E1C1;
-}
 
 .rabatt {
     border: 3px solid black;
@@ -14,6 +11,7 @@
     font-size: 60px;
     display: flex;
     padding: 7px;
+    background-color: #C1E1C1;
 }
 
 .div-container2 {
@@ -34,13 +32,13 @@
 .all-container {
     display: flex;
     flex-direction: column;
-    gap: 90px;
     height: 370px;
     border-color: black;
     border-radius: 20px;
     border-width: medium;
     border-style: solid;
     padding: 20px;
+    margin-left: 10%;
 }
 
 .picAndText {
@@ -58,9 +56,9 @@
 .img1 {
     width: 500px;
     height: auto;
-    border: 5px solid black;
-    border-radius: 10px;
-    margin-left: 450px;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-left: -13%;
 }
 
 .img2 {
@@ -81,7 +79,7 @@
     color: black;
     padding: 12px 24px;
     border-radius: 10px;
-    font-family: "Lucida Handwriting";
+    font-family: "Lucida Handwriting", sans-serif;
     font-size: 15px;
     margin-top: 40px;
 }
@@ -98,7 +96,7 @@
 
 .all-container2 {
     display: flex;
-    flex-direction: row; /* Ändert die Anordnung auf horizontal */
+    flex-direction: row;
     gap: 20px;
     height: 375px;
     border-color: black;
@@ -111,7 +109,7 @@
 }
 .all-container3{
     display: flex;
-    flex-direction: row; /* Ändert die Anordnung auf horizontal */
+    flex-direction: row;
     gap: 20px;
     height: 375px;
     border-color: black;
@@ -165,6 +163,7 @@
         width: 100%;
         max-width: 300px;
         height: auto;
+        margin-left: -8%;
     }
 }
 
@@ -173,7 +172,7 @@
         font-size: 30px;
     }
 
-    #kaktusbild {
+    .img1 {
         width: 100%;
         max-width: 200px;
         height: auto;
