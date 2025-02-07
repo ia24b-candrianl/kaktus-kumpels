@@ -28,6 +28,7 @@ header {
     position: relative;
     flex-wrap: wrap;
 }
+
 main {
     flex: 1
 }
@@ -88,6 +89,7 @@ footer {
     margin-right: 3px;
 
 }
+
 #instalogo {
     margin-left: 40px;
 }

@@ -1,7 +1,4 @@
-import re
-
-from flask import Flask, request, render_template, url_for, redirect
-import services.math_service as math_service
+from flask import Flask, request, render_template, url_for, redirect, session
 
 # Mock-Daten für die Programmiersprachen
 languages = [
@@ -14,9 +11,11 @@ languages = [
 ]
 
 app = Flask(__name__)
+app.secret_key = "test_key"
 from datetime import datetime
 
 release_date = datetime(2025, 3, 18, 14, 2, 0)
+
 
 @app.route("/")
 def home() -> str:
@@ -29,6 +28,7 @@ def home() -> str:
     seconds = time_remaining.seconds % 60
     app.logger.info("Rendering home page")
     return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
+
 
 @app.route("/countdown")
 def countdown():
@@ -94,9 +94,11 @@ def success():
 def warenkorb_leer():
     return render_template('warenkorb_leer.html')
 
+
 @app.route('/profilübersicht')
 def profilübersicht():
     return render_template('profilübersicht.html')
+
 
 @app.route('/warenkorb')
 def warenkorb():
@@ -106,13 +108,64 @@ def warenkorb():
 @app.route('/bezahlseite', methods=["GET", "POST"])
 def bezahlseite():
     if request.method == 'POST':
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
+        kartennummer = request.form.get('kartennummer')
+        sicherheitscode = request.form.get('sicherheitscode')
+        name = request.form.get('name')
+        ablaufdatum = request.form.get('ablaufdatum')
 
-        return redirect(url_for('success'))
+        session['kartennummer'] = kartennummer
+        session['sicherheitscode'] = sicherheitscode
+        session['name'] = name
+        session['ablaufdatum'] = ablaufdatum
+
+        return redirect(url_for('bestellbestätigung'))
 
     return render_template('bezahlseite.html')
+
+
+@app.route('/bezahlseite1', methods=["GET", "POST"])
+def bezahlseite1():
+    if request.method == 'POST':
+        adresse = request.form.get('adresse')
+        nachname = request.form.get('nachname')
+        vorname = request.form.get('vorname')
+        email = request.form.get('email')
+
+        session['adresse'] = adresse
+        session['nachname'] = nachname
+        session['vorname'] = vorname
+        session['email'] = email
+
+        return redirect(url_for('bestellbestätigung_rechnung'))
+
+    return render_template('bezahlseite.html')
+
+
+@app.route('/bestellbestätigung')
+def bestellbestätigung():
+    kartennummer = session.get('kartennummer')
+    sicherheitscode = session.get('sicherheitscode')
+    name = session.get('name')
+    ablaufdatum = session.get('ablaufdatum')
+
+    return render_template('bestellbestätigung.html',
+                           kartennummer=kartennummer,
+                           sicherheitscode=sicherheitscode,
+                           name=name,
+                           ablaufdatum=ablaufdatum)
+
+
+@app.route('/bestellbestätigung_rechnung')
+def bestellbestätigung_rechnung():
+    adresse = session.get('adresse')
+    nachname = session.get('nachname')
+    vorname = session.get('vorname')
+    email = session.get('email')
+
+    return render_template('bestellbestätigung_rechnung.html', adresse=adresse, nachname=nachname, vorname=vorname,
+                           email=email)
+
+
 # API für Programmiersprachen als JSON
 from flask import jsonify
 

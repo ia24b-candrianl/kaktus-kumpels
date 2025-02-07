@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Bestellbestätigung{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='rechnungsbestätigung.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body>
+    <h1>Deine Bestellbestätigung</h1>
+    <div class="text">
+        <h2>Vielen Dank für deine Bestellung. Hier sind deine Bestelldetails:</h2>
+    </div>
+
+    <div class="info">
+        <div class="adresse">
+            <p><strong>Adresse: </strong>{{ adresse }}</p>
+        </div>
+        <div class="Nachname">
+            <p><strong>Nachname </strong>{{ nachname }}</p>
+        </div>
+        <div class="vorname">
+            <p><strong>Vorname: </strong>{{ vorname }}</p>
+        </div>
+        <div class="email">
+            <p><strong>E-Mail: </strong>{{ email }}</p>
+        </div>
+
+    </div>
+
+    <a href="{{ url_for('bezahlseite') }}">Zurück zur Bezahlseite</a>
+
+
+    </body>
+{% endblock %}
