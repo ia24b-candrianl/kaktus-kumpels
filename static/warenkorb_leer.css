@@ -2,11 +2,11 @@ h1{
     padding-top: 60px;
     text-decoration: none;
     font-size: 65px;
-    font-family: "Lucida Handwriting";
+    font-family: "Lucida Handwriting", sans-serif;
 }
 
 h2{
-    font-family: "Lucida Handwriting";
+    font-family: "Lucida Handwriting", sans-serif;
     font-size: 30px;
     text-align: center;
 }
