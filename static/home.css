@@ -21,14 +21,14 @@
     display: flex;
     font-size: 300%;
     margin-left: 40%;
-    margin-top: 15%;
+    margin-top: 13%;
 }
 
 .slogan{
     display: flex;
     font-size: 200%;
     padding-left: 7%;
-    margin-top:17%;
+    margin-top:15%;
 }
 
 .timer{
@@ -51,7 +51,37 @@ iframe{
     display: flex;
     margin-left: 7%;
     font-size: 150%;
+    margin-top: -3%;
 }
+
+@media (max-width: 1024px) {
+    .homeParent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .timer {
+        font-size: 400%;
+        padding-left: 0;
+    }
+
+    #ventilatorBild {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    iframe {
+        margin-top: -1%;
+        font-size: 200% !important;
+    }
+
+    .form-check {
+        font-size: 120%;
+        margin-top: -6%;
+    }
+}
+
 
 @media (max-width: 1024px) {
 
@@ -70,45 +100,9 @@ iframe{
     }
 
     #ventilatorBild {
-        width: 45%;
+        width: 300px;
         max-width: 300px;
         height: auto;
     }
 }
 
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 30px;
-    }
-
-    #ventilatorBild {
-        width: 45%;
-        max-width: 300px;
-        height: auto;
-    }
-
-    nav {
-        gap: 8px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-
-}
-
-@media (max-width: 1024px) {
-    .countdown {
-        font-size: 200%;
-        width: 70%;
-    }
-}
-
-@media (max-width: 768px) {
-    .countdown {
-        font-size: 150%;
-        width: 90%;
-        padding: 15px;
-    }
-}
