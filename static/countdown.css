@@ -2,3 +2,10 @@ p{
     display: flex;
     font-size: 350% !important;
 }
+
+@media (max-width: 1024px) {
+    p{
+        margin-top: 3%;
+        font-size: 250% !important;
+    }
+}
