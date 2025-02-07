@@ -101,3 +101,42 @@ h1 {
     }
 
 }
+
+
+@media (max-width: 1024px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    #landschaft {
+        width: 200px;
+        max-width: 200px;
+        height: auto;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+}
