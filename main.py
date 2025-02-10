@@ -1,3 +1,5 @@
+import os
+import shutil
 from time import strftime
 from product import Product
 from flask import Flask, request, render_template, url_for, redirect, session
@@ -17,7 +19,13 @@ languages = [
 
 app = Flask(__name__)
 
+session_folder = app.config.get("SESSION_FILE_DIR", "flask_session")
+if os.path.exists(session_folder):
+    shutil.rmtree(session_folder)
+    os.makedirs(session_folder)
+
 app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_PERMANENT"] = False
 app.secret_key = "test_key"
 Session(app)
 from datetime import datetime, timedelta
@@ -34,6 +42,7 @@ def home() -> str:
     hours = time_remaining.seconds // 3600
     minutes = (time_remaining.seconds % 3600) // 60
     seconds = time_remaining.seconds % 60
+    #session.clear()
     app.logger.info("Rendering home page")
     return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
 
@@ -64,6 +73,7 @@ def contact() -> str:
 # Route für das Kontaktformular
 @app.route("/submit", methods=["POST"])
 def submit():
+
     app.logger.info("Form submitted")
     name = request.form.get("name", "").strip()
     if not name:
@@ -113,7 +123,7 @@ def warenkorb_leer():
 
 @app.route('/profilübersicht')
 def profilübersicht():
-    bestellungen = session.get('bestellungen')
+    bestellungen = session.get('bestellungen', [])
     return render_template('profilübersicht.html', bestellungen=bestellungen)
 
 
@@ -140,20 +150,20 @@ def bezahlseite():
         session['name'] = name
         session['ablaufdatum'] = ablaufdatum
 
-        session['bestellungen'] = {
+        if 'bestellungen' not in session:
+            session['bestellungen'] = []
+
+        session['bestellungen'].append({
             'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF"
-        }
-        new_product = Product("Arctic Air 2.0", datetime.now(), "bezahlt", 1008.90)
-        products.append(new_product)
+        })
 
         session.modified = True
+        return redirect(url_for('bestellbestätigung'))
 
-        return redirect(url_for('bestellbestätigung', products=products))
-
-    return render_template('bezahlseite.html', products=products)
+    return render_template('bezahlseite.html')
 
 
 @app.route('/bezahlseite1', methods=["GET", "POST"])
@@ -169,21 +179,20 @@ def bezahlseite1():
         session['vorname'] = vorname
         session['email'] = email
 
-        session['bestellungen'] = {
-              'Produkt': "Arctic Air 2.0",
+        if 'bestellungen' not in session:
+            session['bestellungen'] = []
+
+        session['bestellungen'].append({
+            'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF"
-        }
-
-        new_product = Product("Arctic Air 2.0", datetime.now(), "bezahlt", 1008.90)
-        products.append(new_product)
+        })
 
         session.modified = True
+        return redirect(url_for('bestellbestätigung'))
 
-        return redirect(url_for('bestellbestätigung_rechnung', products=products))
-
-    return render_template('bezahlseite.html', products=products)
+    return render_template('bezahlseite.html')
 
 
 @app.route('/bestellbestätigung')
