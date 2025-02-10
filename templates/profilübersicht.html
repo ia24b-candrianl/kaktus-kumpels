@@ -9,15 +9,21 @@
 {% block content %}
     <body>
     <h1>Deine Profilübersicht</h1>
-
-    <div class="infos">
-        <h2>Ihre Bestellungen:</h2>
-        {% for key, value in bestellungen.items() %}
-            <strong>{{ key }}:</strong> {{ value }}<br>
-        {% endfor %}
-
-    </div>
-
+    {% if bestellungen %}
+        <div class="infos">
+            <h2>Ihre Bestellungen:</h2>
+            <ul>
+                {% for bestellung in bestellungen %}
+                    <strong>Produkt:</strong> {{ bestellung.Produkt }} <br>
+                    <strong>Bestelldatum:</strong> {{ bestellung.Bestelldatum }} <br>
+                    <strong>Status:</strong> {{ bestellung.Bezahlstatus }} <br>
+                    <strong>Preis:</strong> {{ bestellung.Preis }} <br>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Du hast noch keine Bestellungen getätigt.</p>
+    {% endif %}
 
     <img src="/static/Ventiator.jpg" id="profilVentilator">
 
