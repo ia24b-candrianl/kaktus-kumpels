@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block content %}
-    <title>Erfolgreiche Anmeldung</title>
     <body>
-    <h1>Viel Spass beim Einkaufen!</h1>
+    <h1>Hallo {{ benutzername }}!</h1>
+    <h2>Wir wünschen dir viel Spass beim Einkaufen!</h2>
     <p>Schlag zu und bestelle dir noch heute deinen Kaktus-tastischen Ventilator!</p>
     <div class="kaktus">
-    <img src="{{ url_for('static', filename='Kaktus_Comic.png') }}" id="comic" alt="kaktus_comic">
+        <img src="{{ url_for('static', filename='Kaktus_Comic.png') }}" id="comic" alt="kaktus_comic">
     </div>
     </body>
 {% endblock %}

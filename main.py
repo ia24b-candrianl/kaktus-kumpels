@@ -12,7 +12,7 @@ languages = [
 
 app = Flask(__name__)
 app.secret_key = "test_key"
-from datetime import datetime
+from datetime import datetime, timedelta
 
 release_date = datetime(2025, 3, 18, 14, 2, 0)
 
@@ -76,9 +76,13 @@ def ueber_uns():
 @app.route('/registrierung', methods=["GET", "POST"])
 def registrierung():
     if request.method == 'POST':
-        username = request.form.get('username')
+        benutzername = request.form.get('benutzername')
         email = request.form.get('email')
         password = request.form.get('password')
+
+        session["benutzername"] = benutzername
+        session['email'] = email
+        session['password'] = password
 
         return redirect(url_for('success'))
 
@@ -87,7 +91,12 @@ def registrierung():
 
 @app.route('/success')
 def success():
-    return render_template('success.html')
+
+    benutzername = session.get('benutzername')
+    email = session.get('email')
+    password = session.get('password')
+
+    return render_template('success.html', email=email, password=password, benutzername=benutzername)
 
 
 @app.route('/warenkorb_leer')
@@ -97,8 +106,12 @@ def warenkorb_leer():
 
 @app.route('/profilübersicht')
 def profilübersicht():
-    return render_template('profilübersicht.html')
-
+    bezahlstatus = "bezahlt"
+    versand = datetime.now() + timedelta(days=5)
+    if bestellbestätigung or bestellbestätigung_rechnung:
+        return render_template('profilübersicht.html', aktuelle_zeit = datetime.now(), bezahlstatus=bezahlstatus, versand=versand)
+    else:
+        return redirect(url_for("home"))
 
 @app.route('/warenkorb')
 def warenkorb():
@@ -153,7 +166,6 @@ def bestellbestätigung():
                            sicherheitscode=sicherheitscode,
                            name=name,
                            ablaufdatum=ablaufdatum)
-
 
 @app.route('/bestellbestätigung_rechnung')
 def bestellbestätigung_rechnung():
