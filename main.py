@@ -1,6 +1,7 @@
 from time import strftime
 from product import Product
 from flask import Flask, request, render_template, url_for, redirect, session
+from flask_session import Session
 
 products = []
 
@@ -15,8 +16,10 @@ languages = [
 ]
 
 app = Flask(__name__)
-app.secret_key = "test_key"
 
+app.config["SESSION_TYPE"] = "filesystem"
+app.secret_key = "test_key"
+Session(app)
 from datetime import datetime, timedelta
 
 release_date = datetime(2025, 3, 18, 14, 2, 0)
@@ -138,19 +141,19 @@ def bezahlseite():
         session['ablaufdatum'] = ablaufdatum
 
         session['bestellungen'] = {
-            'Produkt': "Arctic Air",
+            'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF"
         }
-        new_product = Product("Arctic Air", datetime.now(), "bezahlt", 1008.90)
+        new_product = Product("Arctic Air 2.0", datetime.now(), "bezahlt", 1008.90)
         products.append(new_product)
 
-        session.permanent = True
+        session.modified = True
 
-        return redirect(url_for('bestellbestätigung'))
+        return redirect(url_for('bestellbestätigung', products=products))
 
-    return render_template('bezahlseite.html')
+    return render_template('bezahlseite.html', products=products)
 
 
 @app.route('/bezahlseite1', methods=["GET", "POST"])
@@ -167,20 +170,20 @@ def bezahlseite1():
         session['email'] = email
 
         session['bestellungen'] = {
-            'Produkt': "Arctic Air",
+            'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF"
         }
 
-        session.permanent = True
-
-        new_product = Product("Arctic Air", datetime.now(), "bezahlt", 1008.90)
+        new_product = Product("Arctic Air 2.0", datetime.now(), "bezahlt", 1008.90)
         products.append(new_product)
 
-        return redirect(url_for('bestellbestätigung_rechnung'))
+        session.modified = True
 
-    return render_template('bezahlseite.html')
+        return redirect(url_for('bestellbestätigung_rechnung', products=products))
+
+    return render_template('bezahlseite.html', products=products)
 
 
 @app.route('/bestellbestätigung')
@@ -191,7 +194,7 @@ def bestellbestätigung():
     ablaufdatum = session.get('ablaufdatum')
 
     return render_template('bestellbestätigung.html', kartennummer=kartennummer, sicherheitscode=sicherheitscode,
-                           name=name, ablaufdatum=ablaufdatum)
+                           name=name, ablaufdatum=ablaufdatum, products=products)
 
 
 @app.route('/bestellbestätigung_rechnung')
@@ -202,7 +205,7 @@ def bestellbestätigung_rechnung():
     email = session.get('email')
 
     return render_template('bestellbestätigung_rechnung.html', adresse=adresse, nachname=nachname, vorname=vorname,
-                           email=email)
+                           email=email, products=products)
 
 
 # API für Programmiersprachen als JSON
