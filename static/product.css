@@ -232,7 +232,7 @@
 }
 
 .all-container2, .all-container3 {
-    flex: 1; /* Sorgt dafür, dass sie gleichmäßig Platz einnehmen */
+    flex: 1; /* Sorgt dafür, dass sie gleichmässig Platz einnehmen */
     min-width: 300px; /* Verhindert, dass sie zu klein werden */
 }
 

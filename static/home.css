@@ -1,14 +1,13 @@
-.homeParent {
+.homeParent{
     display: flex;
     flex-direction: row;
 }
 
-.parentSlogan {
+.parentSlogan{
     display: flex;
     flex-direction: row;
 }
-
-#ventilatorBild {
+#ventilatorBild{
     display: flex;
     width: 33%;
     margin-left: 18%;
@@ -18,27 +17,27 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.titleHome {
+.titleHome{
     display: flex;
     font-size: 300%;
     margin-left: 0;
     margin-top: 13%;
 }
 
-.slogan {
+.slogan{
     display: flex;
     font-size: 200%;
     padding-left: 7%;
-    margin-top: 15%;
+    margin-top:15%;
 }
 
-.timer {
+.timer{
     display: flex;
     font-size: 600%;
     padding-left: 7%;
 }
 
-iframe {
+iframe{
     display: flex;
     font-size: 350% !important;
     justify-content: flex-start;
@@ -48,19 +47,18 @@ iframe {
     height: auto;
 }
 
-.form-check {
+.form-check{
     display: flex;
     margin-left: 7%;
     font-size: 150%;
     margin-top: -3%;
 }
 
-.kaktusIcon {
+.kaktusIcon{
     display: flex;
     width: 20%;
     margin-left: 20%;
 }
-
 
 @media (max-width: 1024px) {
     .homeParent {
@@ -70,7 +68,7 @@ iframe {
     }
 
     .timer {
-        font-size: 300%;
+        font-size: 400%;
         padding-left: 0;
     }
 
@@ -81,7 +79,7 @@ iframe {
 
     iframe {
         margin-top: -1%;
-        font-size: 50% !important;
+        font-size: 200% !important;
     }
 
     .form-check {
@@ -90,24 +88,28 @@ iframe {
     }
 }
 
-nav {
-    flex-direction: column;
-    gap: 15px;
-}
 
-nav a {
-    font-size: 14px;
-}
+@media (max-width: 1024px) {
 
-footer {
-    position: relative;
-    font-size: 12px;
-}
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-#ventilatorBild {
-    width: 300px;
-    max-width: 300px;
-    height: auto;
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+    #ventilatorBild {
+        width: 300px;
+        max-width: 300px;
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -115,27 +117,10 @@ footer {
         font-size: 30px;
     }
 
-    .form-check {
-        font-size: 12px;
-    }
-
-    .parentSlogan {
-        font-size: 12px;
-    }
-
-    .titleHome {
-        font-size: 12px;
-
-    }
-
-    .slogan {
-        font-size: 12px;
-    }
-
     #ventilatorBild {
         width: 200px;
         max-width: 200px;
-        margin-bottom: 15%;
+        height: auto;
     }
 
     nav {
