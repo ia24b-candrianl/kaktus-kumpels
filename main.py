@@ -1,3 +1,5 @@
+import os
+import shutil
 from time import strftime
 from product import Product
 from flask import Flask, request, render_template, url_for, redirect, session
@@ -17,6 +19,11 @@ languages = [
 
 app = Flask(__name__)
 
+session_folder = app.config.get("SESSION_FILE_DIR", "flask_session")
+if os.path.exists(session_folder):
+    shutil.rmtree(session_folder)
+    os.makedirs(session_folder)
+
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = False
 app.secret_key = "test_key"
@@ -35,7 +42,7 @@ def home() -> str:
     hours = time_remaining.seconds // 3600
     minutes = (time_remaining.seconds % 3600) // 60
     seconds = time_remaining.seconds % 60
-    session.clear()
+    #session.clear()
     app.logger.info("Rendering home page")
     return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
 
