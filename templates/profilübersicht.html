@@ -7,20 +7,19 @@
 {% endblock %}
 
 {% block content %}
-    <title>Profilübersicht</title>
     <body>
     <h1>Deine Profilübersicht</h1>
-    <div class="title_infos">
+
+    <div class="infos">
         <h2>Ihre Bestellungen:</h2>
+        {% for key, value in bestellungen.items() %}
+            <strong>{{ key }}:</strong> {{ value }}<br>
+        {% endfor %}
+
     </div>
-    <div class="uebersicht">
-        <div class="infos">
-            <p>Bestelldatum: 06.03.25</p>
-            <p>Summe: 1008.90.- CHF</p>
-            <p>Bezahlstatus: offen</p>
-            <p>Zustellungsdatum: 10.03.25</p>
-        </div>
-        <img src="/static/Ventiator.jpg" id="profilVentilator">
-    </div>
+
+
+    <img src="/static/Ventiator.jpg" id="profilVentilator">
+
     </body>
 {% endblock %}

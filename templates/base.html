@@ -21,7 +21,12 @@
             <a href="{{ url_for('ueber_uns') }}">Über uns</a>
             <a href="{{ url_for('contact') }}">Kontakt</a>
             <a href="{{ url_for('registrierung') }}">Registrierung</a>
-            <a href="{{ url_for ('profilübersicht') }}">Profilübersicht</a>
+            {% if products %}
+                <a href="{{ url_for('profilübersicht') }}">Profilübersicht</a>
+            {% else %}
+                <a href="{{ url_for('profilübersicht_leer') }}">Profilübersicht</a>
+            {% endif %}
+
             <a href="{{ url_for('warenkorb_leer') }}">Warenkorb</a>
         </nav>
     </div>

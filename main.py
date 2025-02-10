@@ -1,4 +1,8 @@
+from time import strftime
+from product import Product
 from flask import Flask, request, render_template, url_for, redirect, session
+
+products = []
 
 # Mock-Daten für die Programmiersprachen
 languages = [
@@ -12,6 +16,7 @@ languages = [
 
 app = Flask(__name__)
 app.secret_key = "test_key"
+
 from datetime import datetime, timedelta
 
 release_date = datetime(2025, 3, 18, 14, 2, 0)
@@ -91,7 +96,6 @@ def registrierung():
 
 @app.route('/success')
 def success():
-
     benutzername = session.get('benutzername')
     email = session.get('email')
     password = session.get('password')
@@ -106,12 +110,14 @@ def warenkorb_leer():
 
 @app.route('/profilübersicht')
 def profilübersicht():
-    bezahlstatus = "bezahlt"
-    versand = datetime.now() + timedelta(days=5)
-    if bestellbestätigung or bestellbestätigung_rechnung:
-        return render_template('profilübersicht.html', aktuelle_zeit = datetime.now(), bezahlstatus=bezahlstatus, versand=versand)
-    else:
-        return redirect(url_for("home"))
+    bestellungen = session.get('bestellungen')
+    return render_template('profilübersicht.html', bestellungen=bestellungen)
+
+
+@app.route('/profilübersicht_leer')
+def profilübersicht_leer():
+    return render_template('profilübersicht_leer.html')
+
 
 @app.route('/warenkorb')
 def warenkorb():
@@ -131,6 +137,17 @@ def bezahlseite():
         session['name'] = name
         session['ablaufdatum'] = ablaufdatum
 
+        session['bestellungen'] = {
+            'Produkt': "Arctic Air",
+            'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
+            'Bezahlstatus': "bezahlt",
+            'Preis': "1008.90 CHF"
+        }
+        new_product = Product("Arctic Air", datetime.now(), "bezahlt", 1008.90)
+        products.append(new_product)
+
+        session.permanent = True
+
         return redirect(url_for('bestellbestätigung'))
 
     return render_template('bezahlseite.html')
@@ -149,6 +166,18 @@ def bezahlseite1():
         session['vorname'] = vorname
         session['email'] = email
 
+        session['bestellungen'] = {
+            'Produkt': "Arctic Air",
+            'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
+            'Bezahlstatus': "bezahlt",
+            'Preis': "1008.90 CHF"
+        }
+
+        session.permanent = True
+
+        new_product = Product("Arctic Air", datetime.now(), "bezahlt", 1008.90)
+        products.append(new_product)
+
         return redirect(url_for('bestellbestätigung_rechnung'))
 
     return render_template('bezahlseite.html')
@@ -161,11 +190,9 @@ def bestellbestätigung():
     name = session.get('name')
     ablaufdatum = session.get('ablaufdatum')
 
-    return render_template('bestellbestätigung.html',
-                           kartennummer=kartennummer,
-                           sicherheitscode=sicherheitscode,
-                           name=name,
-                           ablaufdatum=ablaufdatum)
+    return render_template('bestellbestätigung.html', kartennummer=kartennummer, sicherheitscode=sicherheitscode,
+                           name=name, ablaufdatum=ablaufdatum)
+
 
 @app.route('/bestellbestätigung_rechnung')
 def bestellbestätigung_rechnung():
