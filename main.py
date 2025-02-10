@@ -170,7 +170,7 @@ def bezahlseite1():
         session['email'] = email
 
         session['bestellungen'] = {
-            'Produkt': "Arctic Air 2.0",
+              'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF"

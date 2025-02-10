@@ -111,11 +111,19 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        padding: 15px;
+        padding: 12px;
     }
 
+    p {
+        font-size: 8px;
+    }
     footer {
         position: relative;
         font-size: 12px;
     }
+
+    img {
+        justify-content: space-between;
+    }
+
 }
