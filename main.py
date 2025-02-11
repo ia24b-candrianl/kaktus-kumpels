@@ -158,7 +158,8 @@ def bezahlseite():
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF",
-            'Bezahlart': "Kartenzahlung"
+            'Bezahlart': "Kartenzahlung",
+            'Versandstatus': "Versendet"
         })
 
         session.modified = True
@@ -188,7 +189,8 @@ def bezahlseite1():
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
             'Preis': "1008.90 CHF",
-            'Bezahlart': "Rechnung"
+            'Bezahlart': "Rechnung",
+            'Versandstatus': "In Bearbeitung"
         })
 
         session.modified = True

@@ -14,18 +14,22 @@
         <div class="product-container">
             <img src="{{ url_for('static', filename='Ventiator.jpg') }} " class="img1">
             <div class="kaktuspreis">
-                <p><b>Name:</b> Arctic Air 2.0</p>
-                <p><b>Preis:</b> 999.- CHF</p>
-            </div>
-        </div>
+                {% if bestellungen  not in profilübersicht %}
+                    <p><b>Name:</b> Arctic Air 2.0</p>
+                    <p><b>Preis:</b> 999.- CHF</p>
+                    </div>
+                    </div>
 
-        <div class="summary-box">
-            <p>Zwischensumme: 999.- CHF</p>
-            <p>Versand: 9.90.- CHF</p>
-            <p><b>Gesamtsumme: 1008.90.- CHF</b></p>
-            <a href="{{ url_for('bezahlseite') }}">
-                <button class="pay-button">Bezahlen</button>
-            </a>
-        </div>
+                    <div class="summary-box">
+                        <p>Zwischensumme: 999.- CHF</p>
+                        <p>Versand: 9.90.- CHF</p>
+                        <p><b>Gesamtsumme: 1008.90.- CHF</b></p>
+                        <a href="{{ url_for('bezahlseite') }}">
+                            <button class="pay-button">Bezahlen</button>
+                        </a>
+                    </div>
+                {% else %}
+                    <p>Bestellung ist in Bearbeitung</p>
+                {% endif %}
     </div>
 {% endblock %}
