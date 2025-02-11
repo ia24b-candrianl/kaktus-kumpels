@@ -137,6 +137,12 @@ def warenkorb():
     bestellungen = session.get('bestellungen', [])
     return render_template('warenkorb.html', bestellungen=bestellungen)
 
+@app.route('/warenkorb_bezahlen')
+def warenkorb_bezahlen():
+    bestellungen = session.get('bestellungen', [])
+    return render_template('warenkorb_bezahlen.html', bestellungen=bestellungen)
+
+
 @app.route('/bezahlseite', methods=["GET", "POST"])
 def bezahlseite():
     if request.method == 'POST':
