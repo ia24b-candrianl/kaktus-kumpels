@@ -1,5 +1,4 @@
-.body {
-}
+
 
 .rabatt {
     border: 3px solid black;
@@ -120,8 +119,6 @@
 
 }
 
-
-
 .produktInfos {
     display: flex;
     flex-direction: column;
@@ -168,15 +165,151 @@
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 30px;
+   .rabatt {
+        font-size: 24px;
     }
+
+    .kaDiggi {
+    gap: 8vw;
+}
 
     .img1 {
         width: 100%;
-        max-width: 200px;
+        max-width: 100px;
         height: auto;
     }
+
+    .all-container2 {
+        font-size: 12px;
+        width: 40px;
+        height: 100px;
+        gap: 8px;
+        padding: 5px;
+    }
+
+.all-container3{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    height: 100px;
+    padding: 5px;
+}
+
+.produktInfos {
+    gap: 8px;
+}
+
+.spezifikationen {
+    gap: 8px;
+    padding-bottom: 12px;
+}
+
+.picAndTextRight {
+    gap: 8px;
+
+}
+.all-container {
+    height: 170px;
+    padding: 5px;
+    margin-left: 2%;
+}
+
+.picAndText {
+    gap: 8px;
+
+}
+
+.text {
+    padding: 5px;
+}
+
+.img1 {
+    width: 200px;
+    height: auto;
+    margin-left: -3%;
+}
+
+.img2 {
+    margin-top: 30px;
+    width: 50px;
+    margin-bottom: -15px;
+
+}
+
+.abstand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preOrder {
+    background-color: #C1E1C1;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-family: "Lucida Handwriting", sans-serif;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+.preOrder:hover {
+    transform: scale(1.05);
+}
+
+.both-containers{
+    flex-direction: row;
+
+}
+
+
+.all-container2 {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 375px;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    padding: 15px;
+
+
+}
+.all-container3{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 375px;
+    border-color: black;
+    border-radius: 20px;
+    border-width: medium;
+    border-style: solid;
+    padding: 15px;
+
+}
+
+
+
+.produktInfos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spezifikationen {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 30px;
+}
+
+.picAndTextRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+}
 
     nav {
         gap: 8px;
@@ -185,40 +318,6 @@
     nav a {
         font-size: 12px;
     }
-}
-
-@media (max-width: 480px) {
-    .rabattt {
-        font-size: 24px;
-    }
-
-    nav a {
-        font-size: 10px;
-    }
-
-    footer {
-        font-size: 10px;
-    }
-
-    .img1 {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .div-container2 {
-        gap: 15%;
-    }
-
-    .abstand {
-        gap: 5px;
-    }
-
-
 }
 
 

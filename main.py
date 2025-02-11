@@ -157,7 +157,8 @@ def bezahlseite():
             'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
-            'Preis': "1008.90 CHF"
+            'Preis': "1008.90 CHF",
+            'Bezahlart': "Kartenzahlung"
         })
 
         session.modified = True
@@ -186,11 +187,12 @@ def bezahlseite1():
             'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
-            'Preis': "1008.90 CHF"
+            'Preis': "1008.90 CHF",
+            'Bezahlart': "Rechnung"
         })
 
         session.modified = True
-        return redirect(url_for('bestellbestätigung'))
+        return redirect(url_for('bestellbestätigung_rechnung'))
 
     return render_template('bezahlseite.html')
 

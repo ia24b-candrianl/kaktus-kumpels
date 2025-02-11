@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Result{% endblock %}
-
+{% block title %}Produkt{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
+{% endblock %}
 {% block content %}
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
-    </head>
+
+
     <div class="dif">
         <h1 class="rabatt">60% Rabatt! Nur heute.</h1>
     </div>
