@@ -1,13 +1,15 @@
-.homeParent{
+
+.homeParent {
     display: flex;
     flex-direction: row;
 }
 
-.parentSlogan{
+.parentSlogan {
     display: flex;
     flex-direction: row;
 }
-#ventilatorBild{
+
+#ventilatorBild {
     display: flex;
     width: 33%;
     margin-left: 18%;
@@ -17,27 +19,27 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.titleHome{
+.titleHome {
     display: flex;
     font-size: 300%;
     margin-left: 0;
     margin-top: 13%;
 }
 
-.slogan{
+.slogan {
     display: flex;
     font-size: 200%;
     padding-left: 7%;
-    margin-top:15%;
+    margin-top: 15%;
 }
 
-.timer{
+.timer {
     display: flex;
     font-size: 600%;
     padding-left: 7%;
 }
 
-iframe{
+iframe {
     display: flex;
     font-size: 350% !important;
     justify-content: flex-start;
@@ -47,20 +49,20 @@ iframe{
     height: auto;
 }
 
-.form-check{
+.form-check {
     display: flex;
     margin-left: 7%;
     font-size: 150%;
     margin-top: -3%;
 }
 
-.kaktusIcon{
+.kaktusIcon {
     display: flex;
     width: 20%;
     margin-left: 20%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
     .homeParent {
         flex-direction: column;
         align-items: center;
@@ -86,10 +88,7 @@ iframe{
         font-size: 120%;
         margin-top: -6%;
     }
-}
 
-
-@media (max-width: 1024px) {
 
     nav {
         flex-direction: column;
@@ -112,15 +111,19 @@ iframe{
     }
 }
 
+
 @media (max-width: 768px) {
-    h1 {
-        font-size: 30px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     #ventilatorBild {
         width: 200px;
         max-width: 200px;
         height: auto;
+        margin-bottom: 35px;
     }
 
     nav {
@@ -129,6 +132,43 @@ iframe{
 
     nav a {
         font-size: 12px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+    iframe {
+        margin-top: -1%;
+        font-size: 50% !important;
+        width: 90%;
+        justify-self: center;
+    }
+
+    .form-check {
+        font-size: 70%;
+        margin-top: -6%;
+    }
+
+
+    .timer {
+        font-size: 200%;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .slogan {
+        font-size: 14px;
+    }
+
+    .kaktusIcon {
+        width: 30%;
+        height: 5%;
+    }
+
+    .titleHome {
+        font-size: 14px;
     }
 
 }

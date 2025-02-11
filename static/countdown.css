@@ -3,9 +3,11 @@ p{
     font-size: 350% !important;
 }
 
-@media (max-width: 1024px) {
+
+@media (max-width: 768px) {
     p{
         margin-top: 3%;
-        font-size: 250% !important;
+        font-size: 175% !important;
     }
 }
+
