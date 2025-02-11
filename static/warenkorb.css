@@ -43,3 +43,79 @@
     padding-left: 100px;
     margin-top: 100px;
 }
+
+@media (max-width: 1024px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+    #img1 {
+        width: 300px;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 3%;
+    }
+
+    .container{
+        position: relative;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    #img1{
+        width: 200px;
+        max-width: 200px;
+        height: auto;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .summary-box {
+        width: 80%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .kaktuspreis {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+}
