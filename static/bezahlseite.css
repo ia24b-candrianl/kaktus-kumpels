@@ -59,8 +59,6 @@ input, button {
     }
 }
 
-
-
 @media (max-width: 768px) {
     * {
         margin: 0;
