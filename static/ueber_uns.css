@@ -23,10 +23,10 @@
 }
 
 h2 {
-    font-family: "Lucida Handwriting", "DejaVu Sans Mono", serif;
+    font-family: "Book Antiqua", serif;
     display: flex;
     text-align: center;
-    font-size: 60px;
+    font-size: 100px;
     text-decoration: underline;
     justify-content: center;
     align-content: center;
@@ -45,7 +45,7 @@ h2 {
 
 @media (max-width: 1024px) {
 
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -60,13 +60,10 @@ h2 {
         font-size: 16px;
     }
 
-    .parent{
+    .parent {
         flex-direction: column;
 
     }
-
-
-
 
 
     footer {
@@ -95,14 +92,19 @@ h2 {
 
 @media (max-width: 768px) {
 
-    *{
+    * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
     }
-    h1 {
-        font-size: 30px;
-        text-align: center;
+
+
+
+    h2 {
+        font-family: "Book Antiqua", serif;
+        font-size: 35px;
+
+
     }
 
     #kaktusbild {
@@ -118,7 +120,8 @@ h2 {
     nav a {
         font-size: 12px;
     }
-    .parent{
+
+    .parent {
         flex-direction: column;
 
     }
