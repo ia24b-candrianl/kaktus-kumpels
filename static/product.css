@@ -243,7 +243,7 @@
     .text {
         padding: 3vw;
         width: 90%;
-        text-align: center;
+        text-align: left;
         margin-bottom: 5%;
     }
     .pText{
@@ -254,6 +254,11 @@
     .spezifikationen {
         gap: 3vw;
         text-align: center;
+    }
+
+    .spezifikationen li {
+        list-style-type: none;
+        text-align: left;
     }
 
     .preOrder {
