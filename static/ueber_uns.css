@@ -32,6 +32,7 @@ h2 {
     align-content: center;
     padding-bottom: 3%;
     padding-top: 1%;
+    margin: 0;
 }
 
 #ueberuns_bild {
@@ -44,6 +45,12 @@ h2 {
 
 @media (max-width: 1024px) {
 
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     nav {
         flex-direction: column;
         gap: 15px;
@@ -53,22 +60,49 @@ h2 {
         font-size: 16px;
     }
 
+    .parent{
+        flex-direction: column;
+
+    }
+
+
+
+
+
     footer {
         position: relative;
         font-size: 12px;
     }
 
+    .ueber_uns_container {
+        width: 70%;
+        height: auto;
+        margin-right: 5%;
+        margin-left: 15%;
+        padding-left: 6%;
+        padding-right: 6%;
+        margin-bottom: 15%;
+
+    }
+
     #ueberuns_bild {
-        width: 45%;
+        width: 50%;
         max-width: 300px;
         height: auto;
+        margin-top: 20px;
     }
 }
 
-
 @media (max-width: 768px) {
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
     h1 {
         font-size: 30px;
+        text-align: center;
     }
 
     #kaktusbild {
@@ -84,5 +118,28 @@ h2 {
     nav a {
         font-size: 12px;
     }
+    .parent{
+        flex-direction: column;
 
+    }
+
+    .ueber_uns_container {
+        width: 70%;
+        height: auto;
+        margin-right: 5%;
+        margin-left: 15%;
+        padding-left: 8%;
+        padding-right: 8%;
+        margin-bottom: 15%;
+
+
+    }
+
+    #ueberuns_bild {
+        width: 50%;
+        max-width: 250px;
+        margin: 20px auto;
+    }
 }
+
+
