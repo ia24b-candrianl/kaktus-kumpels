@@ -134,8 +134,8 @@ def profilübersicht_leer():
 
 @app.route('/warenkorb')
 def warenkorb():
-    return render_template('warenkorb.html')
-
+    bestellungen = session.get('bestellungen', [])
+    return render_template('warenkorb.html', bestellungen=bestellungen)
 
 @app.route('/bezahlseite', methods=["GET", "POST"])
 def bezahlseite():
@@ -153,7 +153,9 @@ def bezahlseite():
         if 'bestellungen' not in session:
             session['bestellungen'] = []
 
-        session['bestellungen'].append({
+        bestellungen = session.get('bestellungen', [])
+
+        bestellungen.append({
             'Produkt': "Arctic Air 2.0",
             'Bestelldatum': datetime.now().strftime('%d.%m.%Y %H:%M'),
             'Bezahlstatus': "bezahlt",
@@ -162,6 +164,7 @@ def bezahlseite():
             'Versandstatus': "Versendet"
         })
 
+        session['bestellungen'] = bestellungen
         session.modified = True
         return redirect(url_for('bestellbestätigung'))
 

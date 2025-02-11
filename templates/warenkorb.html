@@ -14,7 +14,9 @@
         <div class="product-container">
             <img src="{{ url_for('static', filename='Ventiator.jpg') }} " class="img1">
             <div class="kaktuspreis">
-                {% if bestellungen  not in profilübersicht %}
+                {% if bestellungen %}
+                    <p>Bestellung ist in Bearbeitung</p>
+                {% else %}
                     <p><b>Name:</b> Arctic Air 2.0</p>
                     <p><b>Preis:</b> 999.- CHF</p>
                     </div>
@@ -28,8 +30,6 @@
                             <button class="pay-button">Bezahlen</button>
                         </a>
                     </div>
-                {% else %}
-                    <p>Bestellung ist in Bearbeitung</p>
                 {% endif %}
     </div>
 {% endblock %}
