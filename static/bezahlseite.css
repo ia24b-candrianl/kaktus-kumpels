@@ -10,11 +10,12 @@
     background: white;
     margin-bottom: 30px;
 }
-.arten{
+
+.arten {
     padding-bottom: 50px;
 }
 
-.karte, .rechnung, .bitcoin{
+.karte, .rechnung, .bitcoin {
     display: flex;
     padding: 20px;
     border: 3px solid black;
@@ -38,4 +39,97 @@ input, button {
 #qr-code {
     width: 100px;
     height: auto;
+}
+
+
+@media (max-width: 1024px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin-bottom: 40px;
+
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    footer {
+        position: relative;
+        font-size: 12px;
+    }
+
+
+    .zahlungsweisen {
+        padding: 10px;
+        border: 3px solid black;
+        flex-direction: column;
+        width: 95%;
+        background: white;
+        margin-bottom: 15px;
+    }
+
+    .arten {
+        padding-bottom: 25px;
+    }
+
+    .karte, .rechnung, .bitcoin {
+        padding: 30px;
+        margin: 1% 1%;
+
+
+    }
+
+    label {
+        gap: 4px;
+    }
+
+    input, button {
+        height: 17px;
+        width: 125px;
+        cursor: pointer;
+    }
+
+    #qr-code {
+        width: 50px;
+        height: 50px;
+    }
+
+
+
 }
