@@ -19,6 +19,12 @@ h2{
     padding-bottom: 60px;
 }
 
+.linkP{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+}
+
 @media (max-width: 1024px) {
 
     nav {
