@@ -40,6 +40,12 @@ h2{
         max-width: 300px;
         height: auto;
     }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 768px) {
@@ -59,6 +65,12 @@ h2{
 
     nav a {
         font-size: 12px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
 }
