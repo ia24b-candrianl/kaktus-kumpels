@@ -5,8 +5,6 @@ from product import Product
 from flask import Flask, request, render_template, url_for, redirect, session
 from flask_session import Session
 
-products = []
-
 # Mock-Daten für die Programmiersprachen
 languages = [
     {"name": "Python", "creator": "Guido van Rossum", "year": 1991},
@@ -42,9 +40,12 @@ def home() -> str:
     hours = time_remaining.seconds // 3600
     minutes = (time_remaining.seconds % 3600) // 60
     seconds = time_remaining.seconds % 60
-    #session.clear()
-    app.logger.info("Rendering home page")
-    return render_template("home.html", days=days, hours=hours, minutes=minutes, seconds=seconds)
+    #app.logger.info("Rendering home page")
+
+    if "benutzername" in session:
+        return render_template('home.html', logged_in=True, days=days, hours=hours, minutes=minutes, seconds=seconds)
+    else:
+        return render_template('home.html', logged_in=False, days=days, hours=hours, minutes=minutes, seconds=seconds)
 
 
 @app.route("/countdown")
@@ -73,7 +74,6 @@ def contact() -> str:
 # Route für das Kontaktformular
 @app.route("/submit", methods=["POST"])
 def submit():
-
     app.logger.info("Form submitted")
     name = request.form.get("name", "").strip()
     if not name:
@@ -94,6 +94,7 @@ def ueber_uns():
 @app.route('/registrierung', methods=["GET", "POST"])
 def registrierung():
     if request.method == 'POST':
+
         benutzername = request.form.get('benutzername')
         email = request.form.get('email')
         password = request.form.get('password')
@@ -101,6 +102,7 @@ def registrierung():
         session["benutzername"] = benutzername
         session['email'] = email
         session['password'] = password
+
 
         return redirect(url_for('success'))
 
@@ -136,6 +138,7 @@ def profilübersicht_leer():
 def warenkorb():
     bestellungen = session.get('bestellungen', [])
     return render_template('warenkorb.html', bestellungen=bestellungen)
+
 
 @app.route('/warenkorb_bezahlen')
 def warenkorb_bezahlen():

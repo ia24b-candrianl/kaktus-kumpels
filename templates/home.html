@@ -12,12 +12,41 @@
         <img src="/static/Ventiator.jpg" id="ventilatorBild">
     </div>
     <iframe src="{{ url_for('countdown') }}" width="100%" height="50" frameborder="0"></iframe>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Ich möchte erinnert werden
-        </label>
-    </div>
+
+    {% if logged_in %}
+
+        <div class="popup" id="popup-loggedin">
+            <div class="overlay" onclick="togglePopup('popup-loggedin')"></div>
+            <div class="content">
+                <span class="close" onclick="togglePopup('popup-loggedin')">&times;</span>
+                <h2>Erinnerung aktiv</h2>
+                <p>Du wirst erinnert, sobald das Produkt veröffentlicht wird!</p>
+            </div>
+        </div>
+
+        <button onclick="togglePopup('popup-loggedin')">Ich möchte erinnert werden</button>
+
+    {% else %}
+
+        <div class="popup" id="popup-notloggedin">
+            <div class="overlay" onclick="togglePopup('popup-notloggedin')"></div>
+            <div class="content">
+                <span class="close" onclick="togglePopup('popup-notloggedin')">&times;</span>
+                <h2>Melde dich zuerst an</h2>
+                <a href="{{ url_for('registrierung') }}">Registriere dich hier</a>
+            </div>
+        </div>
+
+        <button onclick="togglePopup('popup-notloggedin')">Ich möchte erinnert werden</button>
+    {% endif %}
+
+
+    <script>
+        function togglePopup(id) {
+            document.getElementById(id).classList.toggle("active");
+        }
+    </script>
+
     <div class="parentSlogan">
         <p class="slogan">"Ein Hauch<br>von Frische"</p>
         <img src="{{ url_for('static', filename='cactus.png') }}" alt="Kaktus" class="kaktusIcon">
