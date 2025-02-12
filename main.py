@@ -219,7 +219,7 @@ def bestellbestätigung():
     ablaufdatum = session.get('ablaufdatum')
 
     return render_template('bestellbestätigung.html', kartennummer=kartennummer, sicherheitscode=sicherheitscode,
-                           name=name, ablaufdatum=ablaufdatum, products=products)
+                           name=name, ablaufdatum=ablaufdatum, products=product)
 
 
 @app.route('/bestellbestätigung_rechnung')
@@ -230,7 +230,7 @@ def bestellbestätigung_rechnung():
     email = session.get('email')
 
     return render_template('bestellbestätigung_rechnung.html', adresse=adresse, nachname=nachname, vorname=vorname,
-                           email=email, products=products)
+                           email=email, products=product)
 
 
 # API für Programmiersprachen als JSON
