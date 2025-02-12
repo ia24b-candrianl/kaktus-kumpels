@@ -1,13 +1,15 @@
 p{
     display: flex;
     font-size: 350% !important;
+    margin-left: 8%;
 }
 
 
 @media (max-width: 768px) {
     p{
         margin-top: 3%;
-        font-size: 175% !important;
+        font-size: 150% !important;
+        justify-self: center;
     }
 }
 

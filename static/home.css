@@ -21,7 +21,7 @@
 
 .titleHome {
     display: flex;
-    font-size: 300%;
+    font-size: 350%;
     margin-left: 0;
     margin-top: 13%;
 }
@@ -44,9 +44,11 @@ iframe {
     font-size: 350% !important;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 7%;
-    margin-top: -15%;
+    margin-top: -20%;
     height: auto;
+    margin-left: 0;
+    width: 80%;
+    border: 0;
 }
 
 .kaktusIcon {
@@ -137,7 +139,7 @@ button:hover {
 
     .timer {
         font-size: 400%;
-        padding-left: 0;
+        margin-left: 5%;
     }
 
     #ventilatorBild {
@@ -146,8 +148,9 @@ button:hover {
     }
 
     iframe {
-        margin-top: -1%;
+        margin-top: 20px;
         font-size: 200% !important;
+        width: 100%;
     }
 
     .form-check {
@@ -175,9 +178,20 @@ button:hover {
         max-width: 300px;
         height: auto;
     }
-     .popup.active .content {
-        transform: translate(-100%, -475%) scale(1)!important;
-        justify-self: center;
+
+    .popup .content {
+        width: 300px;
+        height: 125px;
+        top: 50%;
+        left: 100%;
+        font-size: 12px;
+    }
+
+    h2, p {
+        display: flex;
+        padding-top: 15px;
+        padding-left: 17px;
+
     }
 }
 
@@ -187,6 +201,13 @@ button:hover {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    .timer {
+        font-size: 200%;
+        padding-left: 0;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
     #ventilatorBild {
@@ -210,10 +231,9 @@ button:hover {
     }
 
     iframe {
-        margin-top: -1%;
+        margin-top: 0px;
         font-size: 50% !important;
         width: 90%;
-        justify-self: center;
     }
 
     .form-check {
@@ -230,6 +250,7 @@ button:hover {
 
     .slogan {
         font-size: 14px;
+        margin-bottom: 5%;
     }
 
     .kaktusIcon {
@@ -244,8 +265,8 @@ button:hover {
     .popup .content {
         width: 300px;
         height: 125px;
-        top: 40%;
-        left: 73%;
+        top: 80%;
+        left: 127%;
         font-size: 12px;
     }
 
@@ -254,6 +275,13 @@ button:hover {
         padding-top: 15px;
         padding-left: 17px;
 
+    }
+    button {
+        margin-top: -10%;
+        font-size: 12px;
+        width: 180px;
+        height: auto;
+        margin-left: 12%;
     }
 }
 
