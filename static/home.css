@@ -81,8 +81,8 @@ iframe {
     box-sizing: border-box;
     border-radius: 10px;
     transform: translate(-50%, -50%) scale(0);
-    top: 50%;
-    left: 50%;
+    top: 75%;
+    left: 75%;
 
 }
 
@@ -266,7 +266,7 @@ button:hover {
     .popup .content {
         width: 300px;
         height: 125px;
-        top: 80%;
+        top: 50%;
         left: 127%;
         font-size: 12px;
 
@@ -276,7 +276,6 @@ button:hover {
         display: flex;
         padding-top: 15px;
         justify-content: center;
-
     }
 
     button {
