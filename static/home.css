@@ -81,8 +81,8 @@ iframe {
     box-sizing: border-box;
     border-radius: 10px;
     transform: translate(-50%, -50%) scale(0);
-    top: 75%;
-    left: 75%;
+    top: 150%;
+    left: 70%;
 
 }
 
@@ -267,7 +267,7 @@ button:hover {
         width: 300px;
         height: 125px;
         top: 50%;
-        left: 127%;
+        left: 115%;
         font-size: 12px;
 
     }
