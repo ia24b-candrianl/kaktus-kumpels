@@ -1,7 +1,10 @@
 import os
 import shutil
 from time import strftime
-from product import Product
+
+import psycopg2
+
+from kaktuskumpels import insert_customer
 from flask import Flask, request, render_template, url_for, redirect, session
 from flask_session import Session
 
@@ -28,6 +31,7 @@ app.secret_key = "test_key"
 Session(app)
 from datetime import datetime, timedelta
 
+
 release_date = datetime(2025, 3, 18, 14, 2, 0)
 
 
@@ -40,7 +44,7 @@ def home() -> str:
     hours = time_remaining.seconds // 3600
     minutes = (time_remaining.seconds % 3600) // 60
     seconds = time_remaining.seconds % 60
-    #app.logger.info("Rendering home page")
+    # app.logger.info("Rendering home page")
 
     if "benutzername" in session:
         return render_template('home.html', logged_in=True, days=days, hours=hours, minutes=minutes, seconds=seconds)
@@ -94,29 +98,43 @@ def ueber_uns():
 @app.route('/registrierung', methods=["GET", "POST"])
 def registrierung():
     if request.method == 'POST':
-
-        benutzername = request.form.get('benutzername')
+        vorname = request.form.get('vorname')
+        nachname = request.form.get('nachname')
         email = request.form.get('email')
         password = request.form.get('password')
 
-        session["benutzername"] = benutzername
+        session["vorname"] = vorname
+        session["nachname"] = nachname
         session['email'] = email
         session['password'] = password
 
 
-        return redirect(url_for('success'))
+        if insert_customer(vorname, nachname, email, password): #Wenn customer_exist True ist.
+            return redirect(url_for('success'))
+        else:
+            return render_template('registrierung_vorhanden.html')
+
 
     return render_template('registrierung.html')
 
 
 @app.route('/success')
 def success():
-    benutzername = session.get('benutzername')
+    vorname = session.get('vorname')
+    nachname = session.get('nachname')
     email = session.get('email')
     password = session.get('password')
 
-    return render_template('success.html', email=email, password=password, benutzername=benutzername)
+    return render_template('success.html', email=email, password=password, vorname=vorname, nachname=nachname)
 
+
+@app.route('/registrierung_vorhanden')
+def registrierung_vorhanden():
+    return render_template('registrierung_vorhanden.html')
+
+@app.route('/anmelden')
+def anmelden():
+    return render_template('anmelden.html')
 
 @app.route('/warenkorb_leer')
 def warenkorb_leer():

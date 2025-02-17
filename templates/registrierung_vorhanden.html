@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Registrierung{% endblock %}
+{% block title %}Registrierung_vorhanden{% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='registrierung.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='registrierung_vorhanden.css') }}">
 {% endblock %}
 
 {% block content %}
     <body>
     <h1>Registrierung</h1>
     <div class="container">
-        <form action="{{ url_for ('registrierung') }}" method="post" class="register-form">
+        <form action="{{ url_for ('registrierung_vorhanden') }}" method="post" class="register-form">
             <h2>Melde dich jetzt an!</h2>
 
             <label>
@@ -18,16 +18,16 @@
                 <input type="text" name="vorname" placeholder="Vorname">
                 <input type="text" name="nachname" placeholder="Nachname">
                 <input type="text" name="password" placeholder="Passwort" required>
-                <button type="submit">Weiter</button>
 
-                <div class="vergessen">
-                    <a href="{{ url_for('contact') }}">Kennwort vergessen?</a>
+                <p class="taken">Diese E-Mail wurde bereits verwendet</p>
+                <div class="anmeldung">
+                    <a href="{{ url_for('anmelden') }}">Melde dich hier an</a>
                 </div>
             </label>
         </form>
     </div>
     <div class="landschaft">
-    <img src="{{ url_for('static', filename='kaktus4.jpg') }}" id="landschaft" alt="kaktus_landschaft">
+        <img src="{{ url_for('static', filename='kaktus4.jpg') }}" id="landschaft" alt="kaktus_landschaft">
     </div>
 
     </body>
