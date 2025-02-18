@@ -76,6 +76,17 @@ h1 {
     border-radius: 20px;
 }
 
+.anmeldung a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.anmeldung a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
 
 @media (max-width: 1024px) {
 
@@ -163,4 +174,6 @@ h1 {
     .vergessen a {
         font-size: 10px;
     }
+
+
 }

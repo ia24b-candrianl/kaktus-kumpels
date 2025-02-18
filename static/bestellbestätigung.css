@@ -17,7 +17,7 @@
     background: white;
 }
 
-.kartennummer, .sicherheitscode, .name, .ablaufdatum {
+.kartennummer, .sicherheitscode, .vorname, .nachname, .ablaufdatum {
     display: flex;
     border: 2px solid black;
     border-radius: 10px;
@@ -99,7 +99,7 @@ h2 {
 
     }
 
-    .kartennummer, .sicherheitscode, .name, .ablaufdatum {
+    .kartennummer, .sicherheitscode, .vorname, .nachname, .ablaufdatum {
         width: 260px;
         height: 200px;
         justify-content: center;

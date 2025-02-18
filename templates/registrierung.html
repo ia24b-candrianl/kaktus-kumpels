@@ -23,11 +23,18 @@
                 <div class="vergessen">
                     <a href="{{ url_for('contact') }}">Kennwort vergessen?</a>
                 </div>
+
+                {% if error %}
+                    <p style="color: red"> {{ error }}</p>
+                    <div class="anmeldung">
+                        <a href="{{ url_for('anmelden') }}">Melde dich hier an</a>
+                    </div>
+                {% endif %}
             </label>
         </form>
     </div>
     <div class="landschaft">
-    <img src="{{ url_for('static', filename='kaktus4.jpg') }}" id="landschaft" alt="kaktus_landschaft">
+        <img src="{{ url_for('static', filename='kaktus4.jpg') }}" id="landschaft" alt="kaktus_landschaft">
     </div>
 
     </body>

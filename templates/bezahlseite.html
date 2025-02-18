@@ -11,16 +11,26 @@
     <h1>Bestellung aufgeben</h1>
     <div class="zahlungsweisen">
         <h2>Zahlungsweise</h2>
+        {% if error %}
+            <p style="color: red">{{ error }}</p>
+            <a href="{{ url_for('registrierung') }}">Registriere dich hier</a>
+        {% endif %}
         <div class="arten">
             <div class="karte">
                 <h2>Per Kredit-oder Debitkarte</h2>
                 <form action="{{ url_for('bezahlseite') }}" method="post">
                     <label>
-                        <input type="text" name="kartennummer" placeholder="Kartennummer" required pattern="\d{16}" title="Die Kartennummer muss 16 Ziffern beinhalten.">
-                        <input type="text" name="sicherheitscode" placeholder="Sicherheitscode" required pattern="\d{3}" title="Der Sicherheitscode muss 3 Ziffern beinhalten.">
-                        <input type="text" name="name" placeholder="Name auf der Karte" required >
-                        <input type="text" name="ablaufdatum" placeholder="Ablaufdatum" required pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$" title="Falsches Format (mm/YY)">
-                            <button type="submit">Weiter</button>
+                        <input type="text" name="kartennummer" placeholder="Kartennummer" required pattern="\d{16}"
+                               title="Die Kartennummer muss 16 Ziffern beinhalten.">
+                        <input type="text" name="sicherheitscode" placeholder="Sicherheitscode" required pattern="\d{3}"
+                               title="Der Sicherheitscode muss 3 Ziffern beinhalten.">
+                        <input type="text" name="vorname" placeholder="Vorname auf der Karte" required>
+                        <input type="text" name="nachname" placeholder="Nachname auf der Karte" required>
+                        <input type="email" name="email" placeholder="E-Mail Adresses" required>
+                        <input type="text" name="ablaufdatum" placeholder="Ablaufdatum" required
+                               pattern="^\d{4}-\d{2}-\d{2}$" title="Falsches Format (YYYY-MM-DD)">
+
+                        <button type="submit">Weiter</button>
 
                     </label>
                 </form>
@@ -34,7 +44,7 @@
                         <input type="text" name="vorname" placeholder="Vorname" required>
                         <input type="email" name="email" placeholder="Email" required>
 
-                            <button type="submit">Weiter</button>
+                        <button type="submit">Weiter</button>
 
                     </label>
                 </form>

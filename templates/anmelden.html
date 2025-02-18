@@ -15,14 +15,17 @@
 
             <label>
                 <input type="email" name="email" placeholder="E-Mail Adresse" required>
-                <input type="text" name="vorname" placeholder="Vorname">
-                <input type="text" name="nachname" placeholder="Nachname">
                 <input type="text" name="password" placeholder="Passwort" required>
                 <button type="submit">Weiter</button>
 
                 <div class="vergessen">
                     <a href="{{ url_for('contact') }}">Kennwort vergessen?</a>
                 </div>
+
+                {% if error %}
+                    <p style="color: red">{{ error }}</p>
+                {% endif %}
+
             </label>
         </form>
     </div>

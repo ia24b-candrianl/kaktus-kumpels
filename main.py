@@ -1,10 +1,11 @@
 import os
 import shutil
+from dbm import error
 from time import strftime
 
 import psycopg2
 
-from kaktuskumpels import insert_customer
+from kaktuskumpels import insert_customer, log_in, get_name_by_email, insert_order_credit, insert_order_rechnung
 from flask import Flask, request, render_template, url_for, redirect, session
 from flask_session import Session
 
@@ -30,7 +31,6 @@ app.config["SESSION_PERMANENT"] = False
 app.secret_key = "test_key"
 Session(app)
 from datetime import datetime, timedelta
-
 
 release_date = datetime(2025, 3, 18, 14, 2, 0)
 
@@ -97,33 +97,33 @@ def ueber_uns():
 
 @app.route('/registrierung', methods=["GET", "POST"])
 def registrierung():
+    if 'benutzername' in session:
+        return redirect(url_for('success'))
+
     if request.method == 'POST':
         vorname = request.form.get('vorname')
         nachname = request.form.get('nachname')
         email = request.form.get('email')
         password = request.form.get('password')
 
-        session["vorname"] = vorname
-        session["nachname"] = nachname
-        session['email'] = email
-        session['password'] = password
-
-
-        if insert_customer(vorname, nachname, email, password): #Wenn customer_exist True ist.
+        if insert_customer(vorname, nachname, email, password):  # Wenn customer_exist True ist.
             return redirect(url_for('success'))
         else:
-            return render_template('registrierung_vorhanden.html')
-
+            return render_template('registrierung.html', error="Diese Anmeldedaten werden bereits verwendet")
 
     return render_template('registrierung.html')
 
 
 @app.route('/success')
 def success():
-    vorname = session.get('vorname')
-    nachname = session.get('nachname')
     email = session.get('email')
     password = session.get('password')
+
+    if email:
+        vorname, nachname = get_name_by_email(email)
+    else:
+        vorname = session.get('vorname')
+        nachname = session.get('nachname')
 
     return render_template('success.html', email=email, password=password, vorname=vorname, nachname=nachname)
 
@@ -132,9 +132,27 @@ def success():
 def registrierung_vorhanden():
     return render_template('registrierung_vorhanden.html')
 
-@app.route('/anmelden')
+
+@app.route('/anmelden', methods=['GET', 'POST'])
 def anmelden():
-    return render_template('anmelden.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        session['email'] = email
+        session['password'] = password
+
+        user = log_in(email, password)
+
+        if user:
+            session['benutzername'] = user[1]
+            session['email'] = user[3]
+            return redirect(url_for('success'))
+        else:
+            return render_template('anmelden.html', error="Das Passwort oder der Benutzername ist Falsch.")
+
+    return render_template('anmelden.html', log_in=False)
+
 
 @app.route('/warenkorb_leer')
 def warenkorb_leer():
@@ -169,13 +187,17 @@ def bezahlseite():
     if request.method == 'POST':
         kartennummer = request.form.get('kartennummer')
         sicherheitscode = request.form.get('sicherheitscode')
-        name = request.form.get('name')
+        vorname = request.form.get('vorname')
+        nachname = request.form.get('nachname')
         ablaufdatum = request.form.get('ablaufdatum')
+        email = request.form.get('email')
 
         session['kartennummer'] = kartennummer
         session['sicherheitscode'] = sicherheitscode
-        session['name'] = name
+        session['vorname'] = vorname
+        session['nachname'] = nachname
         session['ablaufdatum'] = ablaufdatum
+        session['email'] = email
 
         if 'bestellungen' not in session:
             session['bestellungen'] = []
@@ -193,7 +215,11 @@ def bezahlseite():
 
         session['bestellungen'] = bestellungen
         session.modified = True
-        return redirect(url_for('bestellbestätigung'))
+
+        if insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablaufdatum, email):
+            return render_template('bestellbestätigung.html')
+        else:
+            return render_template('bezahlseite.html', error="Sie verfügen über noch keinen Account")
 
     return render_template('bezahlseite.html')
 
@@ -224,7 +250,11 @@ def bezahlseite1():
         })
 
         session.modified = True
-        return redirect(url_for('bestellbestätigung_rechnung'))
+
+        if insert_order_rechnung(adresse, nachname, vorname, email):
+            return render_template('bestellbestätigung_rechnung.html')
+        else:
+            return render_template('bezahlseite.html', error="Sie verfügen über noch keinen Account")
 
     return render_template('bezahlseite.html')
 
@@ -233,11 +263,13 @@ def bezahlseite1():
 def bestellbestätigung():
     kartennummer = session.get('kartennummer')
     sicherheitscode = session.get('sicherheitscode')
-    name = session.get('name')
+    vorname = session.get('vorname')
+    nachname = session.get('nachname')
     ablaufdatum = session.get('ablaufdatum')
+    email = session.get('email')
 
     return render_template('bestellbestätigung.html', kartennummer=kartennummer, sicherheitscode=sicherheitscode,
-                           name=name, ablaufdatum=ablaufdatum, products=product)
+                           vorname=vorname, nachname=nachname, ablaufdatum=ablaufdatum, email=email, products=product)
 
 
 @app.route('/bestellbestätigung_rechnung')
