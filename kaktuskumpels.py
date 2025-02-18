@@ -69,7 +69,7 @@ def insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablauf
     if customer_id_result is None:
         print(f"Error: Registriere dich zuerst {customer_email}")
         cursor.close()
-        return
+        return False
     else:
 
         customer_id = customer_id_result[0]
@@ -85,6 +85,8 @@ def insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablauf
 
         cursor.close()
 
+        return True
+
 
 def insert_order_rechnung(adresse, nachname, vorname, email):
     cursor = conn.cursor()
@@ -95,7 +97,7 @@ def insert_order_rechnung(adresse, nachname, vorname, email):
     if customer_id_result is None:
         print(f"Error: Registriere dich zuerst {email}")
         cursor.close()
-        return
+        return False
     else:
 
         customer_id = customer_id_result[0]
@@ -110,6 +112,8 @@ def insert_order_rechnung(adresse, nachname, vorname, email):
         print(count, "Record inserted successfully into bestellung_credit table")
 
         cursor.close()
+
+        return True
 
 
 if __name__ == '__main__':

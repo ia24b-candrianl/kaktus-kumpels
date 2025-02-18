@@ -217,9 +217,9 @@ def bezahlseite():
         session.modified = True
 
         if insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablaufdatum, email):
-            return render_template('bestellbestätigung.html')
+            return redirect(url_for('bestellbestätigung'))
         else:
-            return render_template('bezahlseite.html', error="Sie verfügen über noch keinen Account")
+            return render_template('bezahlseite.html', error="Sie verfügen noch über keinen Account")
 
     return render_template('bezahlseite.html')
 
@@ -252,7 +252,7 @@ def bezahlseite1():
         session.modified = True
 
         if insert_order_rechnung(adresse, nachname, vorname, email):
-            return render_template('bestellbestätigung_rechnung.html')
+            return redirect(url_for('bestellbestätigung_rechnung'))
         else:
             return render_template('bezahlseite.html', error="Sie verfügen über noch keinen Account")
 
