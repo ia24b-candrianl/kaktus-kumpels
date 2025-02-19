@@ -8,6 +8,7 @@
     border: 3px solid black;
     border-radius: 10px;
 }
+
 .product-container {
     display: flex;
     flex-direction: row;
@@ -29,6 +30,7 @@
     border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-top: 5%;
 }
 
 .summary-box {
@@ -43,6 +45,18 @@
     padding-left: 100px;
     margin-top: 100px;
 }
+
+.anmeldung a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.anmeldung a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
 
 @media (max-width: 1024px) {
 
@@ -67,7 +81,7 @@
         margin-bottom: 3%;
     }
 
-    .container{
+    .container {
         position: relative;
     }
 
@@ -87,7 +101,7 @@
         font-size: 30px;
     }
 
-    #img1{
+    #img1 {
         width: 150px;
         max-width: 150px;
         height: auto;

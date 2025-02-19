@@ -116,6 +116,34 @@ def insert_order_rechnung(adresse, nachname, vorname, email):
         return True
 
 
+def insert_warenkorb(amount, customer_email):
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT customer_id from customer where customer_email = %s", (customer_email, ))
+    customer_id_result = cursor.fetchone()
+
+    if customer_id_result is None:
+        print("Keinen Benutzer gefunden")
+        cursor.close()
+        return False
+
+    else:
+        customer_id = customer_id_result[0]
+
+        insert_statement = """insert into warenkorb (customer_id, amount )
+                    values (%s, %s)"""
+
+        cursor.execute(insert_statement, (customer_id, amount))
+        conn.commit()
+
+        count = cursor.rowcount
+        print(count, "Record inserted successfully into warenkorb")
+
+        cursor.close()
+
+        return True
+
+
 if __name__ == '__main__':
     cursor = conn.cursor()
 
@@ -136,6 +164,12 @@ if __name__ == '__main__':
     order_credit_records = cursor.fetchall()
     print("\nGetätigte Bestellungen per Rechnung:")
     print(order_credit_records)
+
+    postgreSQL_select_Query_warenkorb = "SELECT * FROM warenkorb"
+    cursor.execute(postgreSQL_select_Query_warenkorb)
+    warenkorb_records = cursor.fetchall()
+    print("\nIm Warenkorb vorhanden:")
+    print(warenkorb_records)
 
     cursor.close()
     conn.close()

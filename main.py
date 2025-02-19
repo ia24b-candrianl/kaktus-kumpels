@@ -5,7 +5,8 @@ from time import strftime
 
 import psycopg2
 
-from kaktuskumpels import insert_customer, log_in, get_name_by_email, insert_order_credit, insert_order_rechnung
+from kaktuskumpels import insert_customer, log_in, get_name_by_email, insert_order_credit, insert_order_rechnung, \
+    insert_warenkorb
 from flask import Flask, request, render_template, url_for, redirect, session
 from flask_session import Session
 
@@ -106,6 +107,11 @@ def registrierung():
         email = request.form.get('email')
         password = request.form.get('password')
 
+        session['vorname'] = vorname
+        session['nachname'] = nachname
+        session['email'] = email
+        session['password'] = password
+
         if insert_customer(vorname, nachname, email, password):  # Wenn customer_exist True ist.
             return redirect(url_for('success'))
         else:
@@ -173,12 +179,24 @@ def profilübersicht_leer():
 @app.route('/warenkorb')
 def warenkorb():
     bestellungen = session.get('bestellungen', [])
+
     return render_template('warenkorb.html', bestellungen=bestellungen)
 
 
-@app.route('/warenkorb_bezahlen')
+@app.route('/warenkorb_bezahlen', methods=["GET", "POST"])
 def warenkorb_bezahlen():
     bestellungen = session.get('bestellungen', [])
+    if request.method == 'POST':
+        amount = int(request.form.get('amount'))
+        email = session.get('email')
+
+        if email:
+            erfolg = insert_warenkorb(amount, email)
+            if erfolg:
+                return redirect(url_for('bezahlseite'))
+            else:
+                return render_template('warenkorb_bezahlen.html', error = "Kein Benutzer eingeloggt")
+
     return render_template('warenkorb_bezahlen.html', bestellungen=bestellungen)
 
 

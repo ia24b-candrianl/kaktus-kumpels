@@ -22,9 +22,24 @@
             <p>Zwischensumme: 999.- CHF</p>
             <p>Versand: 9.90.- CHF</p>
             <p><b>Gesamtsumme: 1008.90.- CHF</b></p>
-            <a href="{{ url_for('bezahlseite') }}">
-                <button class="pay-button">Bezahlen</button>
-            </a>
+
+            <form method="POST" action="{{ url_for('warenkorb_bezahlen') }}">
+                <label>
+                    <input type="number" name="amount" placeholder="Anzahl" required>
+                </label>
+                <a href="{{ url_for('bezahlseite') }}">
+                    <button class="pay-button">Bezahlen</button>
+                </a>
+            </form>
+
+            {% if error %}
+                <p style="color: red"> {{ error }}</p>
+                <div class="anmeldung">
+                    <a href="{{ url_for('anmelden') }}">Melde dich hier an</a>
+                </div>
+            {% endif %}
+
+
         </div>
     </div>
 {% endblock %}
