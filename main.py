@@ -190,7 +190,9 @@ def warenkorb_bezahlen():
         amount = int(request.form.get('amount'))
         email = session.get('email')
 
-        if email:
+        if amount <= 0:
+            return render_template('warenkorb_bezahlen.html', error="Wählen sie eine gültige Anzahl aus!")
+        elif email:
             erfolg = insert_warenkorb(amount, email)
             if erfolg:
                 insert_warenkorb_produkt(amount, email)
@@ -302,8 +304,15 @@ def bestellbestätigung_rechnung():
                            email=email, products=product)
 
 
+
+
 # API für Programmiersprachen als JSON
 from flask import jsonify
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 
 @app.route('/helloWorld')

@@ -1,29 +1,40 @@
-h1{
+h1 {
     padding-top: 60px;
     text-decoration: none;
     font-size: 65px;
     font-family: "Lucida Handwriting", sans-serif;
 }
 
-h2{
+h2 {
     font-family: "Lucida Handwriting", sans-serif;
     font-size: 30px;
     text-align: center;
 }
 
-#logo2{
-    width: 40%;
-    height: auto;
+#logo2 {
+    width: auto;
     display: block;
     margin: 0 auto;
     padding-bottom: 60px;
 }
 
-.linkP{
+.linkP {
+    margin-bottom: 3%;
+    margin-top: 7%;
     display: block;
     text-align: center;
     font-size: 30px;
+    text-decoration: none;
+    color: #007bff;
+
 }
+
+
+.linkP:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
 
 @media (max-width: 1024px) {
 

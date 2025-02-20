@@ -31,6 +31,8 @@
             {% else %}
                 <a href="{{ url_for('warenkorb_leer') }}">Warenkorb</a>
             {% endif %}
+            <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename = 'logout.png') }}" id="logout"
+            height="30"></a>
         </nav>
     </div>
 </header>
