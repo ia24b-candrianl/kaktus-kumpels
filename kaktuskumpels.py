@@ -39,7 +39,7 @@ def insert_customer(vorname, nachname, email, password):
 
 def log_in(email, password):
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM customer WHERE customer_email = %s AND customer_password = %s", (email, password))
+    cursor.execute("select * from customer where customer_email = %s AND customer_password = %s", (email, password))
     result = cursor.fetchone()
     cursor.close()
 
@@ -51,7 +51,7 @@ def log_in(email, password):
 
 def get_name_by_email(email):
     cursor = conn.cursor()
-    cursor.execute("SELECT customer_firstname, customer_lastname FROM customer WHERE customer_email = %s", (email,))
+    cursor.execute("select customer_firstname, customer_lastname from customer where customer_email = %s", (email,))
     result = cursor.fetchone()
     cursor.close()
 
@@ -63,7 +63,7 @@ def get_name_by_email(email):
 def insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablaufdatum, customer_email):
     cursor = conn.cursor()
 
-    cursor.execute("SELECT customer_id FROM customer WHERE customer_email = %s", (customer_email,))
+    cursor.execute("select customer_id from customer where customer_email = %s", (customer_email,))
     customer_id_result = cursor.fetchone()
 
     if customer_id_result is None:
@@ -91,7 +91,7 @@ def insert_order_credit(kartennummer, sicherheitscode, vorname, nachname, ablauf
 def insert_order_rechnung(adresse, nachname, vorname, email):
     cursor = conn.cursor()
 
-    cursor.execute("SELECT customer_id FROM customer WHERE customer_email = %s", (email,))
+    cursor.execute("select customer_id from customer where customer_email = %s", (email,))
     customer_id_result = cursor.fetchone()
 
     if customer_id_result is None:
@@ -119,7 +119,7 @@ def insert_order_rechnung(adresse, nachname, vorname, email):
 def insert_warenkorb(amount, customer_email):
     cursor = conn.cursor()
 
-    cursor.execute("SELECT customer_id from customer where customer_email = %s", (customer_email, ))
+    cursor.execute("select customer_id from customer where customer_email = %s", (customer_email,))
     customer_id_result = cursor.fetchone()
 
     if customer_id_result is None:
@@ -134,6 +134,45 @@ def insert_warenkorb(amount, customer_email):
                     values (%s, %s)"""
 
         cursor.execute(insert_statement, (customer_id, amount))
+        conn.commit()
+
+        count = cursor.rowcount
+        print(count, "Record inserted successfully into warenkorb")
+
+        cursor.close()
+
+        return True
+
+
+def insert_warenkorb_produkt(amount, customer_email):
+    cursor = conn.cursor()
+
+    cursor.execute("select customer_id from customer where customer_email = %s", (customer_email,))
+    customer_id_result = cursor.fetchone()
+
+    if customer_id_result is None:
+        print("Keinen Benutzer gefunden")
+        cursor.close()
+        return False
+
+    else:
+        customer_id = customer_id_result[0]
+
+    cursor.execute("select warenkorb_id from warenkorb where customer_id = %s", (customer_id,))
+    warenkorb_id_result = cursor.fetchone()
+
+    if warenkorb_id_result is None:
+        print("Keinen Warenkorb gefunden")
+        cursor.close()
+        return False
+
+    else:
+        warenkorb_id = warenkorb_id_result[0]
+
+        insert_statement = """ insert into warenkorb_produkt (warenkorb_id, ventilator_id, amount)
+            values (%s, %s, %s)"""
+
+        cursor.execute(insert_statement, (warenkorb_id, 1, amount))
         conn.commit()
 
         count = cursor.rowcount
@@ -170,6 +209,12 @@ if __name__ == '__main__':
     warenkorb_records = cursor.fetchall()
     print("\nIm Warenkorb vorhanden:")
     print(warenkorb_records)
+
+    postgreSQL_select_Query_warenkorb_produkt = "SELECT * FROM warenkorb_produkt"
+    cursor.execute(postgreSQL_select_Query_warenkorb_produkt)
+    warenkorb_produkt_records = cursor.fetchall()
+    print("\nIm Warenkorb_produkt vorhanden:")
+    print(warenkorb_produkt_records)
 
     cursor.close()
     conn.close()

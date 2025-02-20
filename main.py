@@ -6,7 +6,7 @@ from time import strftime
 import psycopg2
 
 from kaktuskumpels import insert_customer, log_in, get_name_by_email, insert_order_credit, insert_order_rechnung, \
-    insert_warenkorb
+    insert_warenkorb, insert_warenkorb_produkt
 from flask import Flask, request, render_template, url_for, redirect, session
 from flask_session import Session
 
@@ -193,9 +193,10 @@ def warenkorb_bezahlen():
         if email:
             erfolg = insert_warenkorb(amount, email)
             if erfolg:
+                insert_warenkorb_produkt(amount, email)
                 return redirect(url_for('bezahlseite'))
-            else:
-                return render_template('warenkorb_bezahlen.html', error = "Kein Benutzer eingeloggt")
+        else:
+            return render_template('warenkorb_bezahlen.html', error="Kein Benutzer eingeloggt")
 
     return render_template('warenkorb_bezahlen.html', bestellungen=bestellungen)
 
